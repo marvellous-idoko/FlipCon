@@ -1,0 +1,208 @@
+<mat-toolbar matRipple color='accent' style="top: 0;">
+    <button (click)="goback()" mat-icon-button aria-label="Example icon button with a heart icon">
+        <mat-icon>west</mat-icon>
+    </button>
+    <span><strong>loan History</strong></span>
+    <span id="spacer"></span>
+</mat-toolbar>
+<br>
+<br>
+<br>
+<mat-list style="position: relative;">
+    <a routerLink="/loan-details/{{a.loanId}}" *ngFor="let a of this.e | async">
+        <mat-list-item class="listCont bdrd">
+            <div>
+                <figure class="bdrd">
+
+                </figure>
+            </div>
+            <div class="ctr">
+                <b>{{a.amount}}</b>
+                <br>
+                <i class="smallTxt">in progress</i>
+
+            </div>
+            <div class="smallTxt">{{a.dateOfRequest.slice(0,10)}}</div>
+        </mat-list-item>
+    </a>
+    <!-- <a routerLink="/loan-details">
+        <mat-list-item class="listCont bdrd">
+            <div>
+                <figure class="bdrd">
+
+                </figure>
+            </div>
+            <div class="ctr">
+                <b>#900,000.00</b>
+                <br>
+                <i class="smallTxt">Obtained</i>
+
+            </div>
+            <div class="smallTxt">20 - 8 - 21</div>
+        </mat-list-item>
+    </a>
+     <a routerLink="/loan-details">
+        <mat-list-item class="listCont bdrd">
+            <div>
+                <figure class="bdrd">
+
+                </figure>
+            </div>
+            <div class="ctr">
+                <b>#280,000.00</b>
+                <br>
+                <i class="smallTxt">in progress</i>
+
+            </div>
+            <div class="smallTxt">20 - 8 - 21</div>
+        </mat-list-item>
+    </a>
+    <a routerLink="/loan-details">
+        <mat-list-item class="listCont bdrd">
+            <div>
+                <figure class="bdrd">
+
+                </figure>
+            </div>
+            <div class="ctr">
+                <b>#200,000.00</b>
+                <br>
+                <i class="smallTxt">in progress</i>
+
+            </div>
+            <div class="smallTxt">20 - 8 - 21</div>
+        </mat-list-item>
+    </a>
+    <a routerLink="/loan-details">
+        <mat-list-item class="listCont bdrd">
+            <div>
+                <figure class="bdrd">
+
+                </figure>
+            </div>
+            <div class="ctr">
+                <b>#200,000.00</b>
+                <br>
+                <i class="smallTxt">in progress</i>
+
+            </div>
+            <div class="smallTxt">20 - 8 - 21</div>
+        </mat-list-item>
+    </a> -->
+</mat-list>
+<!-- <section style="margin-top: 80px;">
+    <mat-accordion>
+        <mat-expansion-panel *ngFor="let a of this.e | async" style="margin: 20px;height: fit-content!important;">
+            <mat-expansion-panel-header>
+                <mat-panel-title style="display: block;">
+                    <h6>Loan ID</h6>
+                    {{a.loanId}}
+                </mat-panel-title>
+                <mat-panel-title style="display: block;">
+                    <h6>Loan Amount</h6>
+
+                    {{a.amount}}
+                </mat-panel-title>
+                <mat-panel-description style="display: block;">
+                    <div *ngIf="a.offered === true">
+                        <div *ngIf="a.accepted === undefined">
+                            <mat-radio-group aria-label="Select an option">
+                                <mat-radio-button (click)="acceptLoan(a.loanId)" value="1">Accept</mat-radio-button>
+                                <mat-radio-button (click)="rejectLoan(a.loanId)" value="2">Reject</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                    </div>
+                    <div *ngIf="a.offered === false || null">
+                        {{a.dateOfRequest.slice(0,10)}}
+                    </div>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-list role="list">
+                <mat-list-item role="listitem">
+                    <h6>interest rate</h6>&nbsp; &nbsp;{{a.intRate}}
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item role="listitem">
+                    <h6>Summary of Business</h6>&nbsp; &nbsp;{{a.summary}}
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item role="listitem">
+
+                    <h6>About Business</h6>&nbsp; &nbsp; {{a.aboutBusiness}}
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item role="listitem">
+
+                    <h6>Reason</h6>&nbsp; &nbsp; {{a.reason}}
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item role="listitem">
+
+                    <h6>Request Account ID</h6>&nbsp; &nbsp; {{a.acctId}}
+
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item role="listitem">
+
+                    <h6>Date of Request</h6>&nbsp; &nbsp; {{a.dateOfRequest.slice(0,10)}}
+
+
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item role="listitem" *ngIf="a.offered === true">
+
+                    <h6>Proposed interest Rate</h6>&nbsp; &nbsp; {{a.VCOffer.intRate}}
+
+
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item role="listitem" *ngIf="a.offered === true">
+
+                    <h6>Propeosed Loan Amount</h6>&nbsp; &nbsp; {{a.VCOffer.amount}}
+
+
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item role="listitem" *ngIf="a.offered === true">
+
+                    <h6>Propeosed Loan Amount</h6>&nbsp; &nbsp; {{a.VCOffer.amount}}
+
+
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item role="listitem" *ngIf="a.offered === true">
+
+                    <h6>Duraation</h6>&nbsp; &nbsp; {{a.VCOffer.duration}}
+
+
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+                <mat-list-item role="listitem" *ngIf="a.offered === true">
+
+                    <h6>Summary of proposal</h6>&nbsp; &nbsp; {{a.VCOffer.msg}}
+
+
+                </mat-list-item>
+
+                <mat-divider></mat-divider>
+                <mat-list-item role="listitem" *ngIf="a.offered === true && a.accepted === true">
+
+                    <h6 color="accent">You have accepted this offer</h6>
+
+
+                </mat-list-item>
+                <!-- <mat-divider></mat-divider> -->
+
+
+            <!-- </mat-list>
+
+            <mat-panel-title style="display: block;">
+
+            </mat-panel-title>
+            <mat-panel-title style="display: block;">
+            </mat-panel-title>
+        </mat-expansion-panel>
+
+    </mat-accordion>
+
+</section> -->

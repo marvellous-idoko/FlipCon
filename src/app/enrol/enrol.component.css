@@ -1,0 +1,66 @@
+.full-width {
+    width: 100%;
+  }
+  
+  .shipping-card {
+    min-width: 120px;
+    margin: 20px auto;
+  }
+  
+  .mat-radio-button {
+    display: block;
+    margin: 5px 0;
+  }
+  div.wo canvas{
+    background: transparent;
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+  }
+  div.wo{
+    	position: relative;
+  }
+  .row {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .col {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .col:last-child {
+    margin-right: 0;
+  }
+  section{
+    display:flex;
+    place-content: center;
+    place-items:center;
+    margin: 5rem 0 0;
+  }
+  video#video{
+    display: none;
+  }
+  #loader{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right:0;
+    height: 100%!important;
+    background: rgba(0, 0, 0, 0.685);
+    display: flex;
+    place-content: center;
+    place-items: center;
+    z-index: 5;
+    visibility: hidden;
+    width: 100%;
+    will-change: visibility;
+    transition: visibilty .3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+.show{
+    visibility: visible!important;
+}

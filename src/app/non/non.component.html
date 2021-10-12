@@ -1,0 +1,75 @@
+<section>
+    <section style="    padding: 1rem 0;">
+        <figure style="display: flex;
+        align-content: center;
+        justify-content: center;">
+            <img src="../../assets/images/berlin.jpg" class="avatar" height="100" width="100">
+            <!-- <img src="{{c['photo']}}" class="avatar" height="100" width="100"> -->
+        </figure>
+    </section>
+    <section>
+        <mat-list>
+            <mat-divider></mat-divider>
+            <button mat-button class="listI">
+                <div>
+                    <h5>CAC ID</h5>
+                    <p>{{c.cacId}}</p>
+                </div>
+            </button>
+            <mat-divider></mat-divider>
+
+            <mat-divider></mat-divider>
+            <button mat-button class="listI">
+                <div>
+                    <h5>Business Name</h5>
+                    <p>{{c.nameOfBiz}}</p>
+                </div>
+            </button>
+            <mat-divider></mat-divider>
+            <mat-divider></mat-divider>
+            <button mat-button class="listI">
+                <div>
+                    <h5>Industry</h5>
+                    <p>{{c.industry}}</p>
+                </div>
+            </button>
+            <mat-divider></mat-divider>
+            <mat-divider></mat-divider>
+            <button mat-button class="listI">
+                <div>
+                    <h5>Size of Business</h5>
+                    <p> {{c.sizeOfBiz}}</p>
+                </div>
+            </button>
+            <mat-divider></mat-divider>
+            <mat-divider></mat-divider>
+            <button mat-button class="listI">
+                <div>
+                    <h5>Account Number</h5>
+                    <p>{{c.account_no}}</p>
+                </div>
+            </button>
+            <mat-divider></mat-divider>
+            <button mat-button class="listI" *ngIf="c.verified === true">
+                <div>
+                    <h5>BVN</h5>
+                   
+                    <p>{{c.bvn}}</p>
+                </div>
+            </button>
+        </mat-list>
+        <div *ngIf="c.verified === false" style="padding: .5rem 1.5rem;">
+            <form  [formGroup]="addressForm">
+                <div>
+                    <mat-form-field >
+                        <input matInput formControlName="bvn" type="number" id="input"
+                         placeholder="Input BVN here for verification">
+                    </mat-form-field>
+                </div>
+             
+            </form>
+            <button (click)="bvn()" mat-button-raised color="accent">Submit</button>
+
+        </div>
+    </section>
+</section>

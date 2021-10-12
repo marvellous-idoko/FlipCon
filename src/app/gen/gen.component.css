@@ -1,0 +1,44 @@
+.tiles{
+    margin:30% 5%;
+    height: 120px;
+    width: 120px;
+    background-color: var(--lemon);
+    box-sizing: border-box;
+    border-radius: 50%;
+    display: block;
+    animation: rf 3s infinite;
+    will-change: background-color, color;
+    transition:all .5s;
+}
+section{
+    height: 100%!important;
+    background-color: white;
+}
+#op{
+    background:purple;
+    height: 50%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+.flex{
+    display: flex;
+    place-content: center;
+    place-items: center;
+}
+div>button{
+    background-color: white;
+    margin: 20% auto;
+    max-width: fit-content;
+    border: 2px solid purple;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+    font-size: x-large;
+    padding: 5px 10px;
+    color: purple;
+    box-sizing: border-box;
+    box-shadow: #ccc 2px 1px 3px 3px;
+}
+#poi{
+}

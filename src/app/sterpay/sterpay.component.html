@@ -1,0 +1,41 @@
+<section *ngIf="show=== true">
+    <h1>Your Payments Details</h1>
+
+    <div>
+        <label>Name of Depositor</label>
+    <h6> {{nameOfDep}}</h6>
+    </div>
+    
+    <div>
+        <label>Santsi ID of Depositor</label>
+        <h6>{{accoutNoD}}</h6>
+    </div>
+    <div>
+        <label>Amount To be Deposited</label>
+        <h6>{{amt}}</h6>
+    </div>
+    <div>
+        <label>Receipient Name</label>
+
+        <h6>{{nameOfRec}}</h6>
+    </div>
+    <div>
+        <label>Santsi ID of Depositor</label>
+
+        <h6>{{accoutNoR}}</h6>
+    </div>
+    <div>
+        <label>Bank Account Number of Receipient</label>
+        <h6>{{bankAcct}}</h6>
+    </div>
+    <div>
+        <label>Reference Number</label>
+        <h6>{{refNo}}</h6>
+    </div>
+    <button (click)="check()">pay now</button>
+</section>
+<button (click)="show=!show" *ngIf="show === false">View Transaction Details</button>
+<app-button text="{{'Message: ' + this.pol.message + '\n' + 'Response Text: ' +
+ this.pol.data.ResponseText}}" *ngIf="this.sho === true" id="koo" (ok)="mov($event)" >
+    Ok
+</app-button>

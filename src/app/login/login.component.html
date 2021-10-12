@@ -1,0 +1,50 @@
+<mat-toolbar matRipple color='accent' style="top: 0;">
+    <button (click)="goback()" mat-icon-button aria-label="Example icon button with a heart icon">
+        <mat-icon>west</mat-icon>
+    </button>
+    <span><strong>Sign In</strong></span>
+    <span id="spacer"></span>
+</mat-toolbar>
+<section>
+<mat-card>
+    <form [formGroup]="addressForm" novalidate (ngSubmit)="login()">
+
+        <br>
+        <br>
+        <mat-form-field color="accent"appearance="outline">
+            <mat-label>Your Account Number</mat-label>
+            <input matInput type="text" formControlName="id">
+        </mat-form-field>
+        <br>
+        <br>
+        <mat-form-field color="accent"appearance="outline">
+            <mat-label>Your Account Password</mat-label>
+            <input matInput type="password" formControlName="pwd">
+        </mat-form-field>
+        <div class="row" style="display: flex;">
+            <div class="col" style="margin: 5% 10%;">
+                <a routerLink="/enrol">
+                    <button mat-raised-button color="primary">Sign Up</button>
+                </a>
+            </div>
+
+            <div class="col" style="margin: 5% 10%;">
+                <button mat-raised-button color="accent" type="submit">login</button>
+            </div>
+
+        </div>
+    </form>
+
+    <!-- <div > -->
+    <app-button [text]="text" style="visibility: hidden;" id="koo" (ok)="parentEvent($event)">
+        Ok
+    </app-button>
+    <!-- </div> -->
+    <!-- <div id="loader">
+        <figure>
+            <mat-spinner color="accent"></mat-spinner>
+        </figure>
+    </div> -->
+    </mat-card>
+    </section> 
+<app-progress *ngIf="t === true"></app-progress>

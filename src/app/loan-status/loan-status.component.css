@@ -1,0 +1,163 @@
+.mat-expansion-panel{margin: 10px 0px!important;}
+h6{
+    margin: 3px 0px 0px!important;
+    text-align: center;
+}
+.ctr{
+    flex:1;
+}
+.bdrd{
+    border-radius: 10px;
+}
+a{
+    text-decoration: none;
+    color:initial;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(0px);
+}
+.listCont{
+    display: flex;
+    width: stretch;
+    padding: .5rem;
+    background: #a22ad421;
+    margin: .5rem 1rem;
+    /* position: absolute; */
+    /* transform: translateY(19rem); */
+   
+
+}
+.mat-list-base .mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content{    
+    padding: 0 5px!important;
+}
+.listCont figure{
+    background: #a22ad4;
+    height: 40px;
+    width: 40px;
+    margin: 0 1rem 0 0;
+}
+.smallTxt{
+    font-size: 80%;
+}
+a:nth-child(2){
+ animation: kolio0 288ms ease 288ms forwards;
+}
+a:nth-child(3){
+    animation: kolio1 288ms ease 576ms  forwards;
+   }
+   a:nth-child(4){
+    animation: kolio2 288ms ease  836ms  forwards;
+   }
+   a:nth-child(5){
+    animation: kolio3 288ms ease 1096ms forwards;
+   }
+   a:nth-child(6){
+    animation: kolio4 288ms ease 1356ms forwards;
+   }
+
+   a:nth-child(7){
+    animation: kolio5 288ms ease 1616ms forwards;
+   }
+   a:nth-child(8){
+    animation: kolio6 288ms ease 1876ms forwards;
+   }
+   a:nth-child(9){
+    animation: kolio7 288ms ease 2136ms forwards;
+   }
+   a:nth-child(10){
+    animation: kolio8 288ms ease 2396ms forwards;
+   }
+   /* a:nth-child(5){
+    animation: kolio4 .5s ease  forwards;
+   } */
+@keyframes kolio0 {
+    from{
+        transform: translateY(0px);
+
+    }
+    to{
+        transform: translateY(5rem);
+    }
+}
+@keyframes kolio1 {
+    from{
+        transform: translateY(5rem);
+
+    }
+    to{
+        transform: translateY(10rem);
+    }
+}
+@keyframes kolio2 {
+    from{
+        transform: translateY(10rem);
+    }
+    to{
+        transform: translateY(15rem);
+    }
+}
+@keyframes kolio3 {
+    from{
+        transform: translateY(15rem);
+    }
+    to{
+        transform: translateY(20rem);
+    }
+}
+@keyframes kolio4 {
+    from{
+        transform: translateY(20rem);
+    }
+    to{
+        transform: translateY(25rem);
+    }
+}
+@keyframes kolio5 {
+    from{
+        transform: translateY(25rem);
+    }
+    to{
+        transform: translateY(30rem);
+    }
+}
+@keyframes kolio6 {
+    from{
+        transform: translateY(30rem);
+    }
+    to{
+        transform: translateY(35rem);
+    }
+}@keyframes kolio7 {
+    from{
+        transform: translateY(35rem);
+    }
+    to{
+        transform: translateY(40rem);
+    }
+}@keyframes kolio8 {
+    from{
+        transform: translateY(40rem);
+    }
+    to{
+        transform: translateY(45rem);
+    }
+}@keyframes kolio9 {
+    from{
+        transform: translateY(45rem);
+    }
+    to{
+        transform: translateY(50rem);
+    }
+}@keyframes kolio10 {
+    from{
+        transform: translateY(50rem);
+    }
+    to{
+        transform: translateY(55rem);
+    }
+}
+
+

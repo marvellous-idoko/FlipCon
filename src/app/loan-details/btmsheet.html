@@ -1,0 +1,35 @@
+<mat-card-header>Offer</mat-card-header>
+<mat-nav-list>
+ <!-- <mat-list-item> -->
+   <button mat-button class="listI accent">
+            <div style="display: flex;justify-content: space-between;">
+                <span><mat-icon>savings</mat-icon></span>
+                <b>{{lok['VCOffer']['intRate']}}</b>
+            </div>
+        </button>
+        <hr>
+        <button mat-button class="listI accent">
+            <div style="display: flex;justify-content: space-between;">
+                <span><mat-icon>date_range</mat-icon></span>
+                <b>{{lok['VCOffer']['duration']}}</b>
+            </div>
+        </button>
+        <hr>
+        <button mat-button class="listI accent">
+            <div style="display: flex;
+            justify-content: space-between;">
+                <span><mat-icon>money</mat-icon></span><b>{{lok['VCOffer']['amount']}}</b>
+            </div>
+        </button>
+<!-- </mat-list-item> -->
+<mat-divider></mat-divider>
+<p>{{lok['VCOffer']['msg']}}</p>
+</mat-nav-list>
+<div style="float: right;">
+
+<button mat-stroked-button color="warn">
+  Reject
+</button>
+&nbsp;&nbsp;
+<button mat-raised-button color="accent">Accept</button>
+</div>

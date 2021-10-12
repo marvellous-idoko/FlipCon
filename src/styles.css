@@ -1,0 +1,100 @@
+/* You can add global styles to this file, and also import other style files */
+
+        max-width: 700px;
+        html, body { height: 100%;box-sizing: border-box; margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;  }
+
+li.carousel-slide.ng-star-inserted {
+    height: inherit !important;
+}
+mat-drawer-content>div{
+height:100%
+}
+section:first-of-type>mat-carousel,section:first-of-type>mat-carousel>div{
+    background: url('https://thumbs.dreamstime.com/b/close-up-african-woman-selling-food-stuff-local-market-holding-mobile-point-sale-device-collecting-credit-card-166608372.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-form-field .mat-focused .mat-form-field-label
+.mat-tab-nav-bar.mat-primary .mat-ink-bar .mat-input-element{
+    background-color: #69f0ae!important;
+}
+
+.mat-form-field{
+    width: 100%!important;
+}
+app-home,section:first-of-type,
+section:first-of-type>mat-carousel,
+section:first-of-type>mat-carousel>div,
+section:first-of-type>mat-carousel>div>ul,
+section:first-of-type>mat-carousel>div:first-of-type
+section:first-of-type>.mat-carousel{
+    height: inherit!important;
+}
+
+.accent{
+  color:#a22ad4;  
+}
+.mat-toolbar{
+    z-index: 6!important;
+}
+:root{
+    --lemon: rgb(128 167 0);;
+    --dark: rgba(0,0,0,.87); 
+}
+button#hamburger mat-icon{
+    color: white;
+    font-size: 35px;
+    }
+ 
+    /* @media screen and (max-width:1400px){
+        button#hamburger{ 
+            right: 15%!important;
+        }
+    } */
+    /* @media screen and (max-width:1600px){
+        button#hamburger{ 
+            right: 5%!important;
+        }
+    } */
+    @media screen and (min-width:700px){
+       html,body{
+        max-width: auto;
+
+       }
+        button#hamburger{ 
+
+            right: 5%!important;
+        }
+    }
+    /* @media screen and (max-width:1000px){
+        button#hamburger{ 
+            right: 7%!important;
+        }
+    } */
+button#hamburger{
+    z-index: 7;
+    top: 5px;
+    right: 8%;
+    position: fixed!important;
+}
+.mat-card-image{
+    margin: 0 -4px -20px -16px!important;
+}
+.mat-toolbar{
+    position: fixed;
+    z-index: 1;
+    /* max-width: 450px; */
+}
+.row{
+    display: block;
+}
+ 
+.mat-bottom-sheet-container {
+        padding: 0!important;
+    height: 8rem;
+    }
+    .mat-progress-bar {
+        height: 1rem;
+    }

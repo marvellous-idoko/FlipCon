@@ -1,0 +1,136 @@
+<mat-drawer-container class="example-container" [hasBackdrop]="true">
+    <mat-drawer #drawer mode="over" position="end">
+        <section style="padding:10px">
+            <div>
+                <mat-card id="uiop" style="">
+
+                    <mat-card-title id="v"></mat-card-title>
+                    <br>
+                    <mat-card-subtitle id="d"></mat-card-subtitle>
+                </mat-card>
+                <br>
+                <mat-list>
+                    <mat-list-item
+                    *ngIf="this.showo === false"
+                    matRipple (click)="goto('login')">
+                        <mat-icon>login</mat-icon>&nbsp;&nbsp;&nbsp;
+                        Sign In
+                    </mat-list-item>
+                    <mat-list-item matRipple 
+                    *ngIf="this.showo === true"
+                    (click)="goto('login')">
+                        <mat-icon>login</mat-icon>&nbsp;&nbsp;&nbsp;
+                        Shiga Ciki
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item 
+                    *ngIf="this.showo === false"
+                    matRipple (click)="goto('payloan')">
+                        <mat-icon>paid</mat-icon>&nbsp;&nbsp;
+                        Payloan
+                    </mat-list-item>
+                    <mat-list-item 
+                    *ngIf="this.showo === true"
+                    matRipple (click)="goto('enrol')">
+                        <mat-icon>account_circle</mat-icon>&nbsp;&nbsp;
+                        Rajista
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item 
+                    *ngIf="this.showo === true"
+                    matRipple (click)="goto('home')">
+                        <mat-icon>home</mat-icon>&nbsp;&nbsp;
+                        Gida
+                    </mat-list-item>
+                   <mat-list-item 
+                   *ngIf="this.showo === false"
+                   matRipple (click)="goto('home')">
+                        <mat-icon>home</mat-icon>&nbsp;&nbsp;
+                        home
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item
+                    *ngIf="this.showo === false"
+                    matRipple (click)="goto('deposit')">
+                        <mat-icon>credit_card</mat-icon>&nbsp;&nbsp;
+                        deposit
+                    </mat-list-item>
+                    <mat-list-item
+                    *ngIf="this.showo === true"
+                    matRipple (click)="goto('deposit')">
+                        <mat-icon>credit_card</mat-icon>&nbsp;&nbsp;
+                        Ajiya
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item 
+                    *ngIf="this.showo === true"
+                    matRipple (click)="goto('withdraw')">
+                        <mat-icon>credit_score</mat-icon>&nbsp;&nbsp;
+                        Janye
+                    </mat-list-item>
+                    <mat-list-item 
+                    *ngIf="this.showo === false"
+                    matRipple (click)="goto('withdraw')">
+                        <mat-icon>credit_score</mat-icon>&nbsp;&nbsp;
+                        withdraw
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item matRipple 
+                    *ngIf="this.showo === false"
+                    (click)="goto('account_balance')">
+                        <mat-icon>account_balance</mat-icon>&nbsp;&nbsp;
+                        account balance
+                    </mat-list-item>
+
+                    <mat-list-item matRipple 
+                    *ngIf="this.showo === true"
+                    (click)="goto('account_balance')">
+                        <mat-icon>account_balance</mat-icon>&nbsp;&nbsp;
+                        Asusun Lissafi
+                    </mat-list-item>
+
+                    <mat-divider ></mat-divider>
+                    <mat-list-item 
+                    *ngIf="this.showo === true" 
+                     matRipple (click)="goto('loan')">
+                        <mat-icon>receipt_short</mat-icon>&nbsp;&nbsp;
+                        Bashi
+                    </mat-list-item>
+                    <mat-list-item *ngIf="this.showo === false"
+                     matRipple (click)="goto('loan')">
+                        <mat-icon>receipt_short</mat-icon>&nbsp;&nbsp;
+                        Loan
+                    </mat-list-item>
+                    <!-- <mat-divider></mat-divider>
+                    <mat-list-item matRipple 
+                     *ngIf="this.showo === true"
+                     (click)="switchE()">
+                        <mat-icon>receipt_short</mat-icon>&nbsp;&nbsp;
+                        Swithch to Enlgish
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item matRipple 
+                    *ngIf="this.showo === false"(click)="switchH()">
+                        <mat-icon>receipt_short</mat-icon>&nbsp;&nbsp;
+                        Switch to Hausa
+                    </mat-list-item> -->
+
+                    <button mat-flat-button color="accent" id="btn" (click)="logOut()"></button>
+
+                    <!-- <mat-list-item> deposit </mat-list-item> -->
+                </mat-list>
+            </div>
+            <br>
+        </section>
+    </mat-drawer>
+    <mat-drawer-content>
+        <button mat-icon-button class="example-icon" id="hamburger" (click)="drawer.toggle(); chk();"
+            aria-label="Example icon-button with menu icon">
+
+            <mat-icon>menu</mat-icon>&nbsp;&nbsp;
+        </button>
+        <div [@routeAnimations]="prepareRoute(outlet)">
+            <router-outlet #outlet="outlet"></router-outlet>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>

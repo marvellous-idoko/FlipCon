@@ -1,0 +1,278 @@
+<mat-toolbar matRipple color='accent' style="top: 0;">
+    <button (click)="goback()" mat-icon-button aria-label="Example icon button with a heart icon">
+        <mat-icon>west</mat-icon>
+    </button>
+    <span><strong>Enrol to Flipcoin
+    </strong></span>
+    <span id="spacer"></span>
+
+</mat-toolbar>
+<br>
+<!-- <br>
+<form style="padding: 1%;" [formGroup]="addressForm" validate (ngSubmit)="onSubmit()">
+    <mat-card class="shipping-card">
+        <mat-card-header>
+            <mat-card-title>User Information</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+
+            <div class="row">
+                <mat-form-field color="accent" class="full-width">
+                    <input matInput placeholder="First name" formControlName="firstName">
+                    <mat-error *ngIf="addressForm.controls['firstName'].hasError('invalid')">
+                        First name is <strong>invalid</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="row">
+                <mat-form-field color="accent" class="full-width">
+                    <input matInput placeholder="Last name" formControlName="lastName">
+                    <mat-error *ngIf="addressForm.controls['lastName'].hasError('invalid')">
+                        Last name is <strong>invalid</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field color="accent" class="full-width">
+                        <textarea matInput placeholder="Address" formControlName="address"></textarea>
+                        <mat-error *ngIf="addressForm.controls['address'].hasError('invalid')">
+                            Address is <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div>
+                <mat-form-field color="accent" class="full-width">
+                    <input matInput type="email" placeholder="email" formControlName="email">
+                    <mat-error *ngIf="addressForm.controls['email'].hasError('invalid')">
+                        email is <strong>Invalid</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field color="accent" class="full-width">
+                    <input matInput type="number" formControlName="contact">
+                    <mat-error *ngIf="addressForm.controls['contact'].hasError('invalid')">
+                        Phone no. is <strong>Invalid</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="row ">
+                <mat-form-field color="accent" class="full-width" appearance="fill">
+                    <mat-label>Summary of Business</mat-label>
+                    <textarea matInput formControlName="abtBiz"></textarea>
+                    <mat-error *ngIf="addressForm.controls['abtBiz'].hasError('invalid')">
+                        About Business is <strong>Required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <mat-form-field color="accent" class="full-width">
+                        <mat-select placeholder="select account type" formControlName="type">
+                            <mat-option *ngFor="let type of types" [value]="type.abbreviation">
+                                {{ type.name }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="addressForm.controls['type'].hasError('invalid')">
+                            account type <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field color="accent" class="full-width">
+                        <mat-select placeholder="State" formControlName="state">
+                            <mat-option *ngFor="let state of states" [value]="state.abbreviation">
+                                {{ state.name }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="addressForm.controls['state'].hasError('invalid')">
+                            State is <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div>
+                <label>choose a strong password of atleast 6 characters</label>
+                <mat-form-field color="accent" class="full-width">
+                    <input matInput type="password" formControlName="pwd">
+                    <mat-error *ngIf="addressForm.controls['pwd'].hasError('invalid')">
+                        Password is <strong>invalid</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="accent" type="submit">Submit</button>
+        </mat-card-actions>
+    </mat-card>
+</form> -->
+<dialog id="dialog" *ngIf="show === true" style="position: absolute;top: 0;bottom: 0;">
+
+    <i><b>Your response</b></i>
+
+    <h1>{{this.hu['msg']}}</h1>
+   
+    <button mat-button-raise>
+        ok
+    </button>
+</dialog>
+<div id="loader">
+    <figure>
+        <mat-spinner color="accent"></mat-spinner>
+    </figure>
+</div>
+<app-button *ngIf="this.show === true" text="{{'You are successfully Registered on Flipcon'+'\n'+ 
+    'Your account number is ' +'. It was sent to your email, if you could 
+    not fid it in your inbox kindly check your spam. THanks '}}" 
+    (ok)="login($event)">
+    Ok
+</app-button>
+<Section>
+    <mat-vertical-stepper labelPosition="bottom" #stepper>
+        <mat-step [stepControl]="secondFormGroup">
+            <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>Personal Information</ng-template>
+                <mat-form-field>
+                    <input matInput placeholder="Last name, First name" formControlName="name" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="email" formControlName="email" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="contact" minlength="10" maxlength="11"formControlName="contact" type="number" required>
+                </mat-form-field>
+                
+                <mat-form-field>
+                    <input matInput placeholder="Address" formControlName="address" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <!-- <mat-select placeholder="State" formControlName="state"> -->
+                    <mat-select placeholder="Sex" formControlName="sex">
+                        <mat-option *ngFor="let op of op" [value]="op.val">
+                            {{op.li}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-card-header>Bio Data</mat-card-header>
+                <hr>
+                <div class="camera">
+                    <video id="video" height="250" width="250">Video stream not available.</video>
+                    <button mat-raised-button id="startbutton" (click)="fxn()">set camera</button>
+                    <button id="st" mat-flat-button (click)="takepicture()">Take snapshot</button>
+                </div>
+                <canvas id="canvas" height="240" width="250" style="display: none;">
+                </canvas>
+
+                <!-- <div class="wo">
+                <canvas id="kok">
+                </canvas>
+                
+                <img src="/assets/images/berlin.jpg" id="lop" style="width:18rem;">
+            </div> -->
+                <div class="output wo">
+                    <canvas id="kik" height="250" width="250">
+                    </canvas>
+                    <img id="photo" height="250" width="250" alt="The screen capture will appear in this box.">
+                </div>
+
+                <div>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+            <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>Business Information</ng-template>
+                <mat-form-field>
+                    <input matInput placeholder="Name of Business" formControlName="nameOfBiz" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Contact of your Business" type="number" formControlName="bizContact" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Email of your Business" formControlName="bizEmail" required>
+                </mat-form-field>
+                
+                <mat-form-field>
+                    <input matInput placeholder="Address of your Business" formControlName="bizAddress" required>
+                </mat-form-field>
+                
+                <mat-form-field>
+                    <mat-select placeholder="select account type" formControlName="acctType">
+                        <mat-option *ngFor="let type of bizType" [value]="type.val">
+                            {{ type.li }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-select placeholder="size of company"  formControlName="sizeOfBiz">
+                        <mat-option *ngFor="let size of sizes" [value]="size.val">
+                            {{ size.val }}
+                        </mat-option>
+                    </mat-select>                    
+                
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Date of Inception</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="DOI">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field>
+                <mat-select placeholder="Industry" formControlName="industry">
+                    <mat-option *ngFor="let ind of ind" [value]="ind.val">
+                        {{ ind.li }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Brief on Business</mat-label>
+                    <textarea matInput
+                        placeholder="Give a coincise description on what your business is about and your goals"
+                        formControlName="abtBiz"></textarea>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput minlength="12" placeholder="C.A.C ID" type="number" formControlName="cac" required>
+
+                </mat-form-field>
+
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+            <ng-template matStepLabel>Finish Up</ng-template>
+            <form [formGroup]="secondFormGroup">
+                <div>
+                    <label>choose a strong password of atleast 6 characters</label>
+                    <mat-form-field color="accent" class="full-width">
+                        <input style="color: black;"minlength="6" matInput type="password" formControlName="pwd">
+                        <mat-error *ngIf="addressForm.controls['pwd'].hasError('invalid')">
+                            Password is <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <mat-card-actions>
+                    <button type="submit" (click)='reg()' mat-button-raised>
+                        Register
+                    </button>
+                </mat-card-actions>
+            </form>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button (click)="stepper.reset()">Reset</button>
+            </div>
+        </mat-step>
+    </mat-vertical-stepper>
+</Section>
+<app-progress *ngIf="t === true"></app-progress>

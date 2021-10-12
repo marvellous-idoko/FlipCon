@@ -1,0 +1,38 @@
+.listI{
+    height:3rem;
+    width:100%
+}
+#pay-btn{
+    border-radius: 2rem;
+    color: white;
+    background-color: purple;  
+    padding: .5rem 0;
+    width: stretch;
+    margin: 1rem;
+}
+section{
+    height: stretch!important;
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    place-items: center;
+}
+.cont{
+    padding: 1rem;
+    width: 90%;
+    display: flex;
+    place-content: space-between;
+    border: 1px solid purple;
+    color: purple;
+    margin: 0 1rem;
+    border-radius: 20px;
+}
+#ft{
+    position: absolute;
+    height: stretch;
+    top:0;
+    z-index: 10;
+    left: 0;
+    background: white;
+    width: 100%;
+}

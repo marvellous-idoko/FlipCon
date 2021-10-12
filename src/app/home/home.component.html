@@ -1,0 +1,227 @@
+<mat-toolbar matRipple color='accent' style="top:0;">
+    <span><strong>Flipcoin</strong></span>
+    <span id="spacer"></span><br>
+
+</mat-toolbar>
+<!-- <section style="position: relative;top:0;" *ngIf="this.ol === false">
+    <div style="height: inherit;
+ background:url('https://thumbs.dreamstime.com/b/close-up-african-woman-selling-food-stuff-local-market-holding-mobile-point-sale-device-collecting-credit-card-166608372.jpg');
+ display: flex; 
+ background-position: center;
+ background-size: cover;
+ background-repeat: no-repeat;
+ align-items: center;
+ justify-content: center;">
+ 
+        <div>
+            <button mat-button class="tiles" (click)="router('login')">
+                <span *ngIf="this.show === true">Shiga Ciki</span>
+                <span *ngIf="this.show === false">Login</span>
+            </button>
+            <button mat-button class="tiles" (click)="router('enrol')">
+                <span *ngIf="this.show === true">Rajista</span>
+                <span *ngIf="this.show === false">Register</span>
+            </button>
+        </div>
+    </div>
+</section> -->
+<section style="position: relative;top:0;" *ngIf="this.ol === true">
+    <!-- <audio style="margin-top: 30px;" controls *ngIf="show === true" style="display:none;" id="ok" autoplay>
+        <source
+            src="https://firebasestorage.googleapis.com/v0/b/traffickoffensesystem.appspot.com/o/record20210314043436.3gpp?alt=media&token=fa9e99ae-32ea-4315-a8b6-ff32269d63f3">
+        Your browser does not support the
+        <code>audio</code> element
+    </audio> -->
+    <!-- <mat-carousel class="he" timings="250ms ease-in" [autoplay]="false" interval="5000" color="accent" maxWidth="auto"
+        proportion="25" slides="3" [loop]="true" [hideArrows]="false" [hideIndicators]="true" [useKeyboard]="true"
+        [useMouseWheel]="false" orientation="ltr">
+        <mat-carousel-slide *ngIf="this.view === true" class="he" #matCarouselSlide>
+            <div style="height: inherit; display: flex;justify-content: center;align-items: center;">
+                <div>
+                    <button mat-button class="tiles" (click)="router('deposit')" 
+                    style=" animation-delay: .15s;">
+                        <mat-icon mat-card-image>credit_card</mat-icon><br>
+                        <mat-card-content *ngIf="show === true">yi biya</mat-card-content>
+                        <mat-card-content *ngIf="show === false">Savings</mat-card-content>
+                    </button>
+                    <button mat-button class="tiles" (click)="router('withdraw')" style=" animation-delay: .25s;">
+                        <mat-icon mat-card-image>credit_score</mat-icon><br>
+                        <mat-card-content *ngIf="show === true">Janye</mat-card-content>
+                        <mat-card-content *ngIf="show === false">Withdraw</mat-card-content>
+                    </button>
+
+                    <button mat-button class="tiles" (click)="router('loan')"
+                        style=" animation-delay: .35s;">
+                        <mat-icon mat-card-image>account_balance_wallet</mat-icon><br>
+                        <mat-card-content *ngIf="show === true">Bashi</mat-card-content>
+                        <mat-card-content *ngIf="show === false">Loan</mat-card-content>
+                    </button>
+
+                </div>
+            </div>
+        </mat-carousel-slide>
+        <mat-carousel-slide *ngIf="this.view === false">
+            <button mat-button class="tiles" (click)="router('VC')" style="animation-delay: .6s;">
+                <mat-icon mat-card-image>receipt_short</mat-icon><br>
+                <mat-card-content *ngIf="show === true">VC & Govt</mat-card-content>
+                <mat-card-content *ngIf="show === false">Lenders & Govt</mat-card-content>
+            </button>
+            
+        </mat-carousel-slide>
+        <mat-carousel-slide *ngIf="this.view === true" #matCarouselSlide>
+            <div style="height: inherit; 
+              display: flex;justify-content: center;align-items: center;">
+                <div style="padding: 20px;">
+                    <button mat-button class="tiles" 
+                    *ngIf="this.view === true"
+                    (click)="router('loanstatus')" style="animation-delay: .45s;">
+                        <mat-icon mat-card-image>receipt_long</mat-icon><br>
+                        <mat-card-content *ngIf="show === true">
+                            <h6 style=" line-height: 2;   margin-bottom: 0;
+                            margin-block-start: 0px;
+                            margin-block-end: 0px;
+                            margin-inline-start: 0px;
+                            margin-inline-end: 0px;transform: translateY(10px);">Matsayin</h6>
+                            <h6 style="  line-height: 2;   margin-bottom: 0;transform: translateY(10px);
+                            margin-block-start: 0px;
+                            margin-block-end: 0px;
+                            margin-inline-start: 0px;
+                            margin-inline-end: 0px;">Lamuni</h6>
+                        </mat-card-content>
+                        <mat-card-content *ngIf="show === false">Loan Status</mat-card-content>
+                    </button>
+                    <button mat-button 
+                    *ngIf="this.view === true"
+                    class="tiles" (click)="router('deposit')">
+                        <mat-icon mat-card-image>login</mat-icon><br>
+                        <mat-card-content *ngIf="show === true">Biya</mat-card-content>
+                        <mat-card-content *ngIf="show === false">Payments</mat-card-content>
+                    </button>
+                    <button mat-button class="tiles"
+                    (click)="router('account_balance')" style=" animation-delay: .2s;">
+                       <mat-icon mat-card-image>account_balance</mat-icon><br>
+                       <mat-card-content *ngIf="show === true">Asusun Lissafi</mat-card-content>
+                       <mat-card-content *ngIf="show === false">
+                           Account Bal</mat-card-content>
+                   </button>
+                </div>
+            </div>
+        </mat-carousel-slide>
+        <mat-carousel-slide class="he" *ngIf="this.view === true" #matCarouselSlide>
+            <div style="height: inherit;display:flex;justify-content: center;align-items: center;">
+                <div>
+                    <button mat-button class="tiles"
+                    *ngIf="this.view === true"
+                    (click)="router('login')" style=" animation-delay: .15s;">
+                        <mat-icon mat-card-image>account_circle</mat-icon><br>
+                        <mat-card-content *ngIf="show === true">rajista</mat-card-content>
+
+                        <mat-card-content *ngIf="show === false">Switch To Lender's Account</mat-card-content>
+                    </button>
+
+                    <button mat-button class="tiles"
+                    (click)="router('account_balance')" style=" animation-delay: .2s;">
+                       <mat-icon mat-card-image>account_balance</mat-icon><br>
+                       <mat-card-content *ngIf="show === true">Asusun Lissafi</mat-card-content>
+                       <mat-card-content *ngIf="show === false">
+                        <h6 style=" line-height: 2;   margin-bottom: 0;
+                        margin-block-start: 0px;
+                        margin-block-end: 0px;
+                        margin-inline-start: 0px;
+                        margin-inline-end: 0px;transform: translateY(10px);">Statement of</h6>
+                        <h6 style="  line-height: 2;   margin-bottom: 0;transform: translateY(10px);
+                        margin-block-start: 0px;
+                        margin-block-end: 0px;
+                        margin-inline-start: 0px;
+                        margin-inline-end: 0px;">Account</h6>   
+                         </mat-card-content>
+                   </button>
+                    <button mat-button class="tiles"
+                    *ngIf="this.view === true"
+                    style="animation-delay: .3s;">
+                        <mat-icon mat-card-image>caution</mat-icon><br>
+                        <mat-card-content *ngIf="show === true">Taimaka</mat-card-content>
+                        <mat-card-content *ngIf="show === false">Help</mat-card-content>
+                    </button>
+                </div>
+            </div>
+        </mat-carousel-slide>
+    </mat-carousel> -->
+
+    <!-- </div> -->
+</section>
+
+<section style="background-position: center;
+background-size: cover!important;;
+background-repeat: no-repeat;background: url(https://firebasestorage.googleapis.com/v0/b/traffickoffensesystem.appspot.com/o/purple-abstract-background-1080P-wallpaper.jpg?alt=media&token=ede365e4-3397-4d41-a6d7-9e770f5e80bf);">
+    <div style="height: inherit;display: flex;
+    place-content: center;
+    place-items: center;
+    flex-direction: column;">
+        <div style="width: 100%;">
+
+            <div class="hun">
+                <button mat-button class="btn" id="withdraw" (click)="router('withdraw')" 
+                style="animation-name:iwo;">
+                <div class="wrpr">   
+                <mat-icon style="" color="accent">credit_score</mat-icon>
+                    <span style="color: #a22ad4;">Withdraw</span>
+                </div>
+                </button>
+
+                <button class="btn" (click)="router('loan')" id="loan" 
+                style="color: #a22ad4;animation-name:io;">
+                <div class="wrpr">       
+                <mat-icon class="ikn" color="accent">receipt_short</mat-icon>
+                   <span> Loan Request</span>
+                    </div>
+                </button>
+            </div>
+            <div class="hun">
+
+                <button class="btn" (click)="router('deposit')" id="deposit"
+                 style="color: #a22ad4;animation-name:iwopp;">
+                <div class="wrpr">   
+
+                    <mat-icon class="ikn" color="accent">credit_card</mat-icon>
+                    <span>Deposit</span>
+                    </div>
+                </button>
+                <button class="btn" (click)="router('loanstatus')" id="loanstatus" 
+                style="color: #a22ad4; animation-name:iwop;">
+                <div class="wrpr">   
+                    <mat-icon  color="accent">receipt_long</mat-icon>
+                    <span>loan status</span>
+                    </div>
+                </button>
+            </div>
+            <div class="hun">
+                <button class="btn" (click)="router('account_balance')" id="account_balance"
+                 style="color: #a22ad4;animation-name:iwoo;">
+                 <div class="wrpr">   
+                    <mat-icon class="ikn" color="accent">account_balance</mat-icon>
+                 <span>   Account Balance</span>
+</div>
+                </button>
+
+                <button class="btn" (click)="router('payloan')" id="profile"
+                 style="color: #a22ad4;animation-name:iwow;">
+                <div class="wrpr">   
+                    <mat-icon class="ikn" color="accent">paid</mat-icon>
+    	           <span> Pay Loan</span>
+                   </div>
+                </button> 
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+<!-- <section style="   padding:5px 35px;">
+    <div style="display: flex; flex-wrap: wrap;">
+
+
+    </div>
+</section><br> -->
+<!-- <app-chooser class="loader" [text]='o' id="yy" (ok)="yuuyu($event)"></app-chooser> -->

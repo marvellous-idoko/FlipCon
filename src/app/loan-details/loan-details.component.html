@@ -1,0 +1,74 @@
+<mat-toolbar style="top:0;margin-bottom:2rem;" matRipple color='accent'>
+    <button (click)="goback()" mat-icon-button aria-label="Example icon button with a heart icon">
+        <mat-icon>west</mat-icon>
+    </button>
+    <span><strong>Loan Details</strong></span>
+    <span id="spacer"></span>
+</mat-toolbar>
+<br>
+<br>
+<br>
+<section style="padding: 2rem;">
+    <div id="amt">
+        <h5 class="accent">Amount</h5>
+        <h1 class="accent">{{lok['amount']}}</h1>
+    </div>
+
+</section>
+<section>
+
+    <mat-list>
+        <button mat-button class="listI accent">
+            <div style="display: flex;justify-content: space-between;">
+                <span><mat-icon>savings</mat-icon></span><b>{{lok['intRate']}}</b>
+            </div>
+        </button>
+        <hr>
+        <button mat-button class="listI accent">
+            <div style="display: flex;justify-content: space-between;">
+                <span><mat-icon>date_range</mat-icon></span><b>{{lok['duration']}}</b>
+            </div>
+        </button>
+        <hr>
+        <button mat-button class="listI accent">
+            <div style="display: flex;
+            justify-content: space-between;">
+                <span><mat-icon>visibility</mat-icon></span><b>{{lok['views']}}</b>
+            </div>
+        </button>
+        <hr>
+        <button mat-button class="listI accent" (click)="  openBottomSheet()">
+            <div style="display: flex;
+            justify-content: space-between;">
+                <span>Offer</span><b>Tap Here To View Offer</b>
+            </div>
+        </button>
+    </mat-list>
+
+</section>
+
+<!-- <mat-nav-list> -->
+    <!-- <a href="https://keep.google.com/" mat-list-item (click)="openLink($event)"> -->
+      <!-- <span mat-line>Google Keep</span>
+      <span mat-line>Add to a note</span>
+    </a>
+  
+    <a href="https://docs.google.com/" mat-list-item (click)="openLink($event)">
+      <span mat-line>Google Docs</span>
+      <span mat-line>Embed in a document</span>
+    </a>
+  
+    <a href="https://plus.google.com/" mat-list-item (click)="openLink($event)">
+      <span mat-line>Google Plus</span>
+      <span mat-line>Share with your friends</span>
+    </a>
+  
+    <a href="https://hangouts.google.com/" mat-list-item (click)="openLink($event)">
+      <span mat-line>Google Hangouts</span>
+      <span mat-line>Show to your coworkers</span>
+    </a>
+  </mat-nav-list> -->
+
+
+
+

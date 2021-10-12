@@ -1,0 +1,21 @@
+button div{
+    display: flex;
+    place-items: center;
+    place-content: space-between;
+    width: stretch;
+    padding:0 1rem;
+}
+button{
+    width: stretch;
+    color: #a22ad4;
+}
+.mat-button{
+    line-height: 0!important;
+}
+.listI{
+    height:3rem;
+    width:100%
+}
+.avatar{
+    border-radius: 10%;
+    border: #a22ad4 solid;}

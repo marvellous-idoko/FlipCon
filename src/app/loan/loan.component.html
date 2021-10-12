@@ -1,0 +1,126 @@
+<mat-toolbar matRipple color='accent'>
+    <button (click)="goback()" mat-icon-button aria-label="Example icon button with a heart icon">
+        <mat-icon>west</mat-icon>
+    </button>
+    <span><strong>loan</strong></span>
+    <span id="spacer"></span>
+</mat-toolbar>
+<mat-toolbar matRipple color='accent' style="top: 0;">
+    <button (click)="goback()" mat-icon-button aria-label="Example icon button with a heart icon">
+        <mat-icon>west</mat-icon>
+    </button>
+    <span><strong>Loan</strong></span>
+    <span id="spacer"></span>
+
+</mat-toolbar>
+<br>
+
+<form style="padding: 1%;" [formGroup]="addressForm" validate (ngSubmit)="onSubmit()">
+<!--    
+    <mat-card-content id="bvn" style="visibility: hidden;" >
+        <p>
+            <mat-form-field color="accent"appearance="outline">
+                <mat-label>Verify your BVN</mat-label>
+                <input matInput type="number" placeholder="BVN"  (blur)="vrf()"formControlName="bvn">
+               <mat-hint>note that: only the BVN assigned on the sandbox can be used, which is <b>12345678901</b></mat-hint>
+            </mat-form-field>
+            &nbsp;<mat-hint *ngIf="this.show === true">Verifying . . .</mat-hint>
+            &nbsp;<mat-hint *ngIf = "this.sho === true" style="color:red;">Input the BVN Assigned in the SandBox which is 12345678901</mat-hint>
+        </p>
+       
+    </mat-card-content> -->
+    <app-button *ngIf="this.gh === true" text="kindly update your profile to make a loan request" (ok)="move($event)">
+        Ok
+    </app-button>
+    <mat-card class="shipping-card">
+        <mat-card-header>
+            <mat-card-title>Loan Information</mat-card-title>
+        </mat-card-header>
+        
+        <mat-card-content id="loanForm">
+            <div class="row">
+                <div class="col">
+                    <mat-form-field color="accent"class="full-width">
+                        <mat-label>Reason for Loan</mat-label>
+                        <input matInput placeholder="Reason for laon" formControlName="reason">
+                        <mat-hint>e.g Start Up, Expansion, Staff Remuneration</mat-hint>
+                        <mat-error *ngIf="addressForm.controls['reason'].hasError('invalid')">
+                            Reason is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field color="accent"class="full-width">
+                        <mat-label>Amount</mat-label>
+                        <input matInput type="number" placeholder="Amount" formControlName="amount">
+                        <mat-error *ngIf="addressForm.controls['amount'].hasError('invalid')">
+                            Amount is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div><br>
+
+            <mat-form-field color="accent"class="full-width">
+                <mat-label>Suummarise your loan request here</mat-label>
+                <textarea rows="8" matInput placeholder="Summary of loan" formControlName="summary"></textarea>
+                <mat-error *ngIf="addressForm.controls['summary'].hasError('invalid')">
+                    Summary is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <br>
+
+            <div class="row">
+                <div class="col">
+                    <mat-form-field color="accent"class="full-width">
+                        <mat-label>select Duration of Loan</mat-label>
+                        <mat-select placeholder="select affordable interest rate" formControlName="duration">
+                            <mat-option *ngFor="let duration of durations" [value]="duration.name">
+                                {{ duration.name }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="addressForm.controls['type'].hasError('invalid')">
+                            Duration<strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <br>
+
+
+            <div class="row">
+                <div class="col">
+                    <mat-form-field color="accent"class="full-width">
+                        <mat-label>select affordable interest rate</mat-label>
+                        <mat-select placeholder="select affordable interest rate" formControlName="type">
+                            <mat-option *ngFor="let type of types" [value]="type.name">
+                                {{ type.name }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="addressForm.controls['type'].hasError('invalid')">
+                            interest rate<strong>required</strong>
+                        </mat-error>
+                        <mat-hint>select affordable interest rate</mat-hint>
+                    </mat-form-field>
+                </div>
+            </div>
+            <br>
+
+            <mat-card-actions>
+                <button mat-raised-button color="accent" type="submit">Submit Request</button>
+            </mat-card-actions>
+        </mat-card-content>
+      
+    </mat-card>
+</form>
+
+<div id="loader">
+    <figure>
+        <mat-spinner color="accent"></mat-spinner>
+    </figure>
+</div>

@@ -1,0 +1,201 @@
+<mat-toolbar matRipple color='accent' style="top: 0;">
+    <button (click)="goback()" mat-icon-button aria-label="Example icon button with a heart icon">
+        <mat-icon>west</mat-icon>
+    </button>
+    <span><strong>Payments & Savings</strong></span>
+    <span id="spacer"></span>
+</mat-toolbar>
+<br>
+<mat-card>
+    <br>
+    <mat-tab-group mat-align-tabs="center" dynamicHeight=false>
+        <mat-tab label="Payments">
+            <h3>Input details for Transfer or Deposit</h3>
+            <form [formGroup]="addressForm" ngSubmit="" style="padding: 10px;margin: 2px; border: #69f0ae 2px solid;">
+                <h4>Receipient Santsi Account Number</h4>
+                <mat-form-field color="accent"class="full-width">
+                    <input matInput [value]='ko.value' #ko (blur)="chkAcctNo()" placeholder="Account Number"
+                        formControlName="acctNo">
+                    <mat-error *ngIf="addressForm.controls['acctNo'].hasError('invalid')">
+                        Account Number is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+                <mat-card *ngIf="show === false">
+                    input a valid santsii account
+                </mat-card>
+                <mat-card *ngIf="show === true">
+                    <mat-card-header style="margin-bottom: 5px;"> Account Name :{{this.b['name']}}</mat-card-header>
+                    <mat-card-header>Conntact
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:{{this.b['contact']}}</mat-card-header>
+                </mat-card>
+                <h4>Select amount to deposit</h4>
+                <mat-form-field color="accent"class="full-width">
+                    <mat-select placeholder="amount" formControlName="amount">
+                        <mat-option *ngFor="let amount of amounts" [value]="amount.abbreviation">
+                            {{ amount.name }}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="addressForm.controls['amount'].hasError('invalid')">
+                        amount is <strong>invalid</strong>
+                    </mat-error>
+                </mat-form-field>
+                <h4>choose payment channel</h4>
+                <mat-form-field color="accent"class="full-width">
+                    <mat-select placeholder="channel" formControlName="pmtType">
+                        <mat-option *ngFor="let pmtType of pmtType" [value]="pmtType.abbreviation">
+                            {{ pmtType.name }}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="addressForm.controls['pmtType'].hasError('invalid')">
+                        payment type is <strong>invalid</strong>
+                    </mat-error>
+                </mat-form-field>
+                <div *ngIf="this.addressForm.get('pmtType').value === 'BAT'">
+                    <label>Input Account Number to be debitted</label>
+                    <mat-form-field color="accent"appearance="outline">
+                        <mat-label>Input Account Number to transfer From</mat-label>
+                        <input matInput type="number" placeholder="Account Number" (blur)="vrf()"
+                            formControlName="acct">
+                        <mat-hint *ngIf="this.ddee === true">note that: only the Account No assigned on the Sterling
+                            sandbox can be used, which is 0037514056</mat-hint>
+                    </mat-form-field>
+            <i *ngIf="this.oko === false" >Retriving Bank Account Info . . .</i>
+
+                    <mat-list role="list" *ngIf="this.oko === true">
+                        <mat-list-item role="listitem">
+                            <h6>Account Number</h6>&nbsp; &nbsp;{{this.vrfAccount}}
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item role="listitem">
+                            <h6>Message</h6>&nbsp; &nbsp;{{this.vrfMsg}}
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item role="listitem">
+                            <h6>Account Status</h6>&nbsp; &nbsp;{{this.VrfStatus}}
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                    </mat-list>
+                </div>
+               
+                <button mat-button style="width: 100%; background: #69f0ae;border-radius: 10px;">
+                    <b *ngIf="this.addressForm.get('pmtType').value === 'agent'" (click)="genID()">
+                        Generate Voucher
+                    </b>
+                </button>
+                <div *ngIf="this.oko=== true">
+                    <app-sterpay amt="{{addressForm.get('amount').value}}" refNo="{{this.ref}}"
+                        accoutNoR="{{this.h['account_no']}}" accoutNoD="{{this.h['account_no']}}"
+                        nameOfDep="{{this.h['fullName']}}" nameOfRec="{{this.h['fullName']}}"
+                        bankAcct="{{this.vrfAccount}}"></app-sterpay>
+                </div>
+            </form>
+            <!-- 
+            <button mat-raised-button color="accent" angular4-paystack color="accent" id="paystackButton"
+                email="{{this.h}}" amount="{{this.addressForm.get('amount').value}}" ref="{{this.ref}}"
+                [channels]="['card']" [class]="'paystackButton'" (close)="paymentCancel()" (callback)="paymentDone()">
+                Deposit
+            </button> -->
+
+        </mat-tab>
+        <mat-tab label="Save">
+            <br>
+            <h3>Select details to deposit into your personal account</h3>
+            <form [formGroup]="addressForm"style="padding: 10px;margin: 2px; border: #69f0ae 2px solid;">
+                <h4>Select amount to deposit</h4>
+                <mat-form-field color="accent"class="full-width">
+                    <mat-select placeholder="amount" formControlName="amount">
+                        <mat-option *ngFor="let amount of amounts" [value]="amount.abbreviation">
+                            {{ amount.name }}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="addressForm.controls['amount'].hasError('invalid')">
+                        amount is <strong>invalid</strong>
+                    </mat-error>
+                </mat-form-field>
+                <h4>choose payment channel</h4>
+                <mat-form-field color="accent"class="full-width">
+                    <mat-select placeholder="channel" formControlName="pmtType">
+                        <mat-option *ngFor="let pmtType of pmtType" [value]="pmtType.abbreviation">
+                            {{ pmtType.name }}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="addressForm.controls['pmtType'].hasError('invalid')">
+                        payment type is <strong>invalid</strong>
+                    </mat-error>
+                </mat-form-field>
+                <div *ngIf="this.addressForm.get('pmtType').value === 'BAT'">
+                    <label>Input Account Number to be debitted</label>
+                    <mat-form-field color="accent"appearance="outline">
+                        <mat-label>Input Account Number to transfer From</mat-label>
+                        <input matInput type="number" placeholder="Account Number" (blur)="vrf()"
+                            formControlName="acct">
+                        <mat-hint *ngIf="this.ddee === true">note that: only the Account No assigned on the Sterling
+                            sandbox can be used</mat-hint>
+                    </mat-form-field>
+                    <br>
+                    <br>
+                    <i *ngIf="this.oko === false" >Retrieving Bank Account Info . . .</i>
+                    <mat-list role="list" *ngIf="this.oko === true">
+                        <mat-list-item role="listitem">
+                            <h6>Account Number</h6>&nbsp; &nbsp;{{this.vrfAccount}}
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item role="listitem">
+                            <h6>Message</h6>&nbsp; &nbsp;{{this.vrfMsg}}
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item role="listitem">
+                            <h6>Account Status</h6>&nbsp; &nbsp;{{this.VrfStatus}}
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                    </mat-list>
+                </div>
+                <!-- <label>Verification Details from name Enquiry</label>
+                <mat-list role="list">
+                    <mat-list-item role="listitem">
+                        <h6>Account Number</h6>&nbsp; &nbsp;{{this.vrfAccount}}
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item role="listitem">
+                        <h6>Message</h6>&nbsp; &nbsp;{{this.vrfMsg}}
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item role="listitem">
+                        <h6>Account Status</h6>&nbsp; &nbsp;{{this.VrfStatus}}
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                </mat-list> -->
+                <br>
+                <button mat-button style="width: 100%; background: #69f0ae;border-radius: 10px;">
+                    <b *ngIf="this.addressForm.get('pmtType').value === 'agent'" (click)="genIDp()">
+                        Generate Voucher
+                    </b>
+                    </button>
+              
+                <div *ngIf="this.oko=== true">
+                    <app-sterpay amt="{{addressForm.get('amount').value}}" refNo="{{this.ref}}"
+                        accoutNoR="{{this.h['account_no']}}" accoutNoD="{{this.h['account_no']}}"
+                        nameOfDep="{{this.h['fullName']}}" nameOfRec="{{this.h['fullName']}}"
+                        bankAcct="{{this.vrfAccount}}">
+                    </app-sterpay>
+                </div>
+            </form>
+           
+            <!-- <button mat-raised-button color="accent" angular4-paystack color="accent" id="paystackButton"
+                email="{{this.h}}" ok
+                ="{{this.addressForm.get('amount').value}}" ref="{{this.ref}}"
+                [channels]="['card']" [class]="'paystackButton'" (close)="paymentCancel()" (callback)="paymentDone()">
+                Deposit
+            </button> -->
+
+        </mat-tab>
+    </mat-tab-group>
+
+</mat-card>
+<!-- <div  > -->
+<app-button *ngIf="this.notif === true" text="{{'Your Voucher ID is '+ this.tranId +'\n'+ 'proceed to the nearest
+Santsi Kudi Agent to Complete your Transaction'}}"
+ (ok)="goback()" >
+    Ok
+</app-button>
+<!-- </div> -->

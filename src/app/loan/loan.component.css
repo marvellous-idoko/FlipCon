@@ -1,0 +1,18 @@
+.show{
+visibility: visible!important;
+}
+#loader{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    height: 100%!important;
+    background: rgba(0, 0, 0, 0.685);
+    display: flex;
+    place-content: center;
+    place-items: center;
+    z-index: 5;
+    visibility: hidden;
+    width: 100%;
+    will-change: visibility;
+    transition: visibilty .3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}

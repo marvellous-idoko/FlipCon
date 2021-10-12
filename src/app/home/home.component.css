@@ -1,0 +1,188 @@
+.tiles{
+    margin:30% 5%;
+    height: 120px;
+    width: 120px;
+    background-color: var(--lemon);
+    box-sizing: border-box;
+    border-radius: 50%;
+    display: block;
+    animation: rf 3s infinite;
+    will-change: background-color, color;
+    transition:all .5s;
+}
+div.hun{
+    display: flex;
+    place-content: space-evenly;
+    place-items: center;
+    height: 8rem;
+    width: 100%;
+}
+@keyframes io {
+    from{
+        visibility: visible;
+        transform: translate(10rem,-4rem);
+    }
+    to{
+        visibility: visible;
+    }
+}
+@keyframes iwo {
+    from{
+        visibility: visible;
+        transform: translate(-10rem,-4rem);
+    }
+    to{
+        visibility: visible;
+    }
+}
+
+@keyframes iwoo {
+    from{
+        visibility: visible;
+        transform: translate(-10rem,4rem);
+    }
+    to{
+        visibility: visible;
+    }
+}
+@keyframes iwopp {
+    from{
+        visibility: visible;
+        transform: translate(-10rem,0rem);
+    }
+    to{
+        visibility: visible;
+    }
+}
+@keyframes iwop {
+    from{
+        visibility: visible;
+        transform: translate(10rem,0rem);
+    }
+    to{
+        visibility: visible;
+    }
+}
+@keyframes iwow {
+    from{
+        visibility: visible;
+        transform: translate(10rem,4rem);
+    }
+    to{
+        visibility: visible;
+    }
+}
+.reduce{
+    font-size: calc(75%);
+    width: calc(25%)!important;
+    height: calc(42%)!important;
+}
+.wrpr{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.1;  
+}
+.ikn{
+}
+button.btn{
+    position: relative;
+    border: double purple;
+    border-radius: 5px;
+    font-family: 'Roboto';
+    transition: all 288ms;
+    animation-fill-mode: forwards;
+    animation-duration: 550ms;
+    width: 5rem;
+    height: 4rem;
+    visibility: hidden;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    color: #a22ad4;
+background-color: white;
+}
+
+.loader{
+    padding: 30px;
+    position: fixed;
+    top: 0;
+    height: calc(fit-content + 10px);
+    background:white;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    z-index: 7;
+    color: black;
+    width: calc(fit-content + 10px);
+    will-change: visibility;
+    transition: visibilty .5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+@keyframes rf{
+    0%{
+        /* height: 113px; */
+        /* width: 113px; */
+        font-size: 15px!important;
+    }
+    50%{
+        padding: 10px;
+
+        height: 125px;
+        width: 125px;
+        font-size: 25px!important;
+
+    }100%{
+        /* height: 113px; */
+        font-size: 15px!important;
+        /* width: 113px; */
+    }
+
+}
+button.tiles mat-card-content{
+    /* animation: r 3s infinite; */
+}
+
+@keyframes r{
+    0%{
+        font-size: 10px!important;
+    }50%{
+        font-size: 15px!important;
+    }100%{
+        font-size: 10px!important;
+    }
+}
+
+/* div>div>button:last-of-type{
+
+    transform: translate( 70%, -40%); 
+
+}
+div>div>button:nth-of-type(2):hover{
+    background-color: var(--lemon);
+    color: white;
+}
+div>div>button:nth-of-type(2){
+    will-change: background,color;
+    transition:background .5s,color .5s ease;
+    border: var(--lemon) 5px solid;
+    color: var(--lemon);
+    background: white;
+    box-sizing:border-box ;
+    transform: translate(-90px, -65px);
+}
+div>div>button:first-of-type:hover,div>div>button:last-of-type:hover{
+    background-color: white; ;
+    color:var(--lemon);
+    border: var(--lemon) 5px solid;
+}
+div>div>button:first-of-type{
+    transform: translate( 70%, -40%); 
+}
+.show{
+    visibility: visible!important;
+}
+
+.he,.he>div,.carousel[_ngcontent-ubq-c10]{
+    height: inherit!important;
+} */

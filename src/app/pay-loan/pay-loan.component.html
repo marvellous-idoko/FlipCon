@@ -1,0 +1,35 @@
+<section>
+    <div class="cont">
+        <h3>Loan Amount</h3>
+        <h3>20,000,000.00</h3>
+    </div>
+    <div style="width: 90%;">
+        <mat-list>
+            <button mat-button class="listI accent">
+                <div style="display: flex;justify-content: space-between;">
+                    <span>Intereest</span><b>#200,000</b>
+                </div>
+            </button>
+            <hr>
+            <button mat-button class="listI accent">
+                <div style="display: flex;justify-content: space-between;">
+                    <span>Platform Charge</span><b>#3,000.00</b>
+                </div>
+            </button>
+            <hr>
+            <button mat-button class="listI accent">
+                <div style="display: flex;
+                justify-content: space-between;">
+                    <span>Total</span><b>#2,203,000</b>
+                </div>
+            </button>            
+        </mat-list>
+        <button mat-button id="pay-btn" (click)="re()"><span>Pay Now</span></button>
+    </div>
+</section>
+<app-progress *ngIf="t === true"></app-progress>
+<div *ngIf="to === true" id="ft">
+    <iframe  [src]="tht | safe" style="height: inherit;width: inherit;">
+
+    </iframe>
+</div>

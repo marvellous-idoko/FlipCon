@@ -1,0 +1,76 @@
+<mat-toolbar matRipple color='accent' style="top: 0;">
+    <button (click)="goback()" mat-icon-button aria-label="Example icon button with a heart icon">
+        <mat-icon>west</mat-icon>
+    </button>
+    <span><strong>Withdrawal</strong></span>
+    <span id="spacer"></span>
+</mat-toolbar>
+<br>
+<br>
+<br>
+<form [formGroup]="addressForm">
+    <mat-card>
+        <mat-form-field color="accent" appearance="outline">
+            <mat-label>Amount to Withdraw</mat-label>
+            <input matInput type="number" placeholder="amount" formControlName="amount">
+        </mat-form-field>
+        <h4>choose Withdrawal channel</h4>
+        <mat-form-field color="accent" color="accent" class="full-width">
+            <mat-select placeholder="channel" formControlName="pmtType">
+                <mat-option *ngFor="let pmtType of pmtType" [value]="pmtType.abbreviation">
+                    {{ pmtType.name }}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="addressForm.controls['pmtType'].hasError('invalid')">
+                payment type is <strong>invalid</strong>
+            </mat-error>
+        </mat-form-field>
+        
+        <div *ngIf="this.addressForm.get('pmtType').value === 'BAT'">
+            <label>Input Account Number to credit</label>
+            <mat-form-field color="accent" appearance="outline">
+                <mat-label>Account Number</mat-label>
+                <input matInput type="number" placeholder="Account Number" (blur)="vrf()"
+                    formControlName="acct">
+                <mat-hint *ngIf="this.ddee === true">note that: only the Account No assigned on the Sterling
+                    sandbox can be used, which is 0037514056</mat-hint>
+            </mat-form-field>           
+            <br>
+            <br>
+
+            <i *ngIf="this.oko === false" >Retrieving Bank Account Info . . .</i>
+
+            <mat-list role="list" *ngIf="this.oko === true">
+                <mat-list-item role="listitem">
+                    <h6>Account Number</h6>&nbsp; &nbsp;{{this.vrfAccount}}
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item role="listitem">
+                    <h6>Message</h6>&nbsp; &nbsp;{{this.vrfMsg}}
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item role="listitem">
+                    <h6>Account Status</h6>&nbsp; &nbsp;{{this.VrfStatus}}
+                </mat-list-item>
+                <mat-divider></mat-divider>
+            </mat-list>
+            <div class="col" style="margin: 5% 5%;" *ngIf="this.oko === true" >
+            <button mat-raised-button color="accent" (click)='withdraw()'>Withdraw</button>
+        </div>
+        </div>
+        <div class="col" style="margin: 5% 5%;" 
+        *ngIf="this.addressForm.get('pmtType').value==='agent'">
+            <button mat-raised-button color="accent" (click)="genID()" >Generate Withdrawal Voucher</button>
+        </div>
+        
+    </mat-card>
+</form>
+<app-button *ngIf="this.show === true" text="{{this.t}}"
+ (ok)="reroute($event)">
+    Ok
+</app-button>
+<app-button *ngIf="this.sho === true" text="{{'Your Voucher ID is '+ this.id +'\n'+ 'proceed to the nearest
+FlipCoin Agent to Complete your Transaction'}}"
+ (ok)="reroute($event)" >
+    Ok
+</app-button>

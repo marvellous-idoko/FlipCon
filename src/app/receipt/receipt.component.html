@@ -1,0 +1,195 @@
+<mat-toolbar matRipple color='accent' style="top: 0;">
+    <button (click)="goback()" mat-icon-button aria-label="Example icon button with a heart icon">
+        <mat-icon>west</mat-icon>
+    </button>
+    <span><strong>Account Balance</strong></span>
+    <span id="spacer"></span>
+
+</mat-toolbar>
+<br>
+<br>
+<br>
+<mat-toolbar>
+    <h1 style="text-align: right;">
+        {{this.a}}
+        <!-- {{this.a.Math.ceil(this.a.length - 1),this.a.length)}} <span>your total cash</span> -->
+    </h1>
+</mat-toolbar>
+<br>
+<br>
+<br>
+<h3 style="text-align: center;">Statement Of Account</h3>
+
+<mat-tab-group mat-align-tabs="center" dynamicHeight=false>
+    <mat-tab label="Credit">
+            <mat-list style="    margin: 20px 10px;
+            border-radius: 10px;
+            box-shadow: 1px 1px 4px 2px #00000082;" role="list" *ngFor="let a of this.aa">
+                <mat-list-item role="listitem">
+                    <h6>Name Of Depositor</h6>&nbsp; &nbsp;{{a.nameOfDepostor}}
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item role="listitem">
+                    <h6>Date of Transaction</h6>&nbsp; &nbsp;{{a.dateOfTransaction.slice(0,10)}}
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item role="listitem">
+                    <h6>Account Number Of Depositor</h6>&nbsp; &nbsp;{{a.account_noOfDepositor}}
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item role="listitem">
+                    <h6>Amount Creditted</h6>&nbsp; &nbsp;#{{a.amountDeposited}}
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item role="listitem">
+                    <h6>Reference Number</h6>&nbsp; &nbsp;{{a.refNo}}
+                </mat-list-item>
+            </mat-list>
+    
+
+    </mat-tab>
+    <mat-tab label="Debit">
+            <mat-list style="    margin: 20px 10px;
+            border-radius: 10px;
+            box-shadow: 1px 1px 4px 2px #00000082;" role="list" *ngFor="let a of this.aaa">
+
+                <mat-list-item role="listitem">
+                    <h6>Date of Transaction</h6>&nbsp; &nbsp;{{a.dateOfTransaction.slice(0,10)}}
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-divider></mat-divider>
+                <mat-list-item role="listitem">
+                    <h6>Amount Debited</h6>&nbsp; &nbsp;#{{a.amtWitdrawn}}
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item role="listitem">
+                    <h6>Reference Number</h6>&nbsp; &nbsp;{{a.refNo}}
+                </mat-list-item>
+            </mat-list>
+    </mat-tab>
+</mat-tab-group>
+
+<!-- <div class="df" *ngFor="let a of this.aa">
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    account_noOfDepositor
+                </mat-panel-title>
+                <mat-panel-description>
+                    {{a['account_noOfDepositor']}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+        </mat-expansion-panel>
+
+    </mat-accordion>
+    <mat-accordion>
+        <mat-expansion-panel>
+
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    amountDeposited
+                </mat-panel-title>
+                <mat-panel-description>
+                    {{a['amountDeposited']}} </mat-panel-description>
+            </mat-expansion-panel-header>
+        </mat-expansion-panel>
+
+    </mat-accordion>
+
+    <mat-accordion>
+        <mat-expansion-panel>
+
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    dateOfTransaction
+                </mat-panel-title>
+                <mat-panel-description>
+                    {{a['dateOfTransaction']}} </mat-panel-description>
+            </mat-expansion-panel-header>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    nameOfDepostor
+                </mat-panel-title>
+                <mat-panel-description>
+                    {{a['nameOfDepostor']}} </mat-panel-description>
+            </mat-expansion-panel-header>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <mat-accordion>
+
+        <mat-expansion-panel>
+
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    refNo
+                </mat-panel-title>
+                <mat-panel-description>
+                    {{a['refNo']}} </mat-panel-description>
+            </mat-expansion-panel-header>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div> -->
+<!-- <label></label>
+        <mat-card-header>{{a['account_noOfDepositor']}}</mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-header>{{a['amountDeposited']}}</mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-header>{{a['dateOfTransaction']}}</mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-header>{{a['nameOfDepostor']}}</mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-header>{{a['refNo']}}</mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-header>{{a['nameOfReceipient']}}</mat-card-header>
+    </mat-card> -->
+
+<!-- <table mat-table dataSource="{{this.aa | async}}" class="mat-elevation-z8"> -->
+
+<!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+<!-- Position Column -->
+<!-- <ng-container matColumnDef="nameOfDepostor">
+          <th mat-header-cell *matHeaderCellDef> Name of Depositor </th>
+          <td mat-cell *matCellDef="let element"> {{element.nameOfDepostor}} </td>
+        </ng-container>
+       -->
+<!-- Name Column -->
+<!-- <ng-container matColumnDef="account_noOfReceipient">
+          <th mat-header-cell *matHeaderCellDef> Recipient Account </th>
+          <td mat-cell *matCellDef="let element"> {{element.account_noOfReceipient}} </td>
+        </ng-container> -->
+<!-- <ng-container matColumnDef="nameOfReceipient">
+            <th mat-header-cell *matHeaderCellDef> Recipient Account </th>
+            <td mat-cell *matCellDef="let element"> {{element.nameOfReceipient}} </td>
+          </ng-container> -->
+
+<!-- Weight Column -->
+<!-- <ng-container matColumnDef="amountDeposited">
+          <th mat-header-cell *matHeaderCellDef> Amount Deposited </th>
+          <td mat-cell *matCellDef="let element"> <h3>{{element.amountDeposited}} </h3></td>
+        </ng-container> -->
+
+<!-- Symbol Column -->
+<!-- <ng-container matColumnDef="account_noOfDepositor">
+          <th mat-header-cell *matHeaderCellDef> Sender's Account Number</th>
+          <td mat-cell *matCellDef="let element"> {{element.account_noOfDepositor}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="refNo">
+            <th mat-header-cell *matHeaderCellDef>  Reference number</th>
+            <td mat-cell *matCellDef="let element"> {{element.refNo}} </td>
+          </ng-container>
+          <ng-container matColumnDef="dateOfTransaction">
+            <th mat-header-cell *matHeaderCellDef>Date of Transaction</th>
+            <td mat-cell *matCellDef="let element"> {{element.dateOfTransaction}} </td>
+          </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table> -->
+<!-- <> -->
