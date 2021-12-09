@@ -1,7 +1,7 @@
 {
   "configVersion": 1,
-  "timestamp": 1633528181039,
-  "index": "./index.html",
+  "timestamp": 1639093135316,
+  "index": "/index.html",
   "assetGroups": [
     {
       "name": "app",
@@ -10,14 +10,14 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main-es2015.93f860b25a99ceb40323.js",
-        "/main-es5.93f860b25a99ceb40323.js",
+        "/main-es2015.120a5f36e222a4c10360.js",
+        "/main-es5.120a5f36e222a4c10360.js",
         "/manifest.webmanifest",
         "/polyfills-es2015.621d94a072aeafd539f2.js",
         "/polyfills-es5.0db3731d713f532fca56.js",
         "/runtime-es2015.cdfb0ddb511f65fdc0a0.js",
         "/runtime-es5.cdfb0ddb511f65fdc0a0.js",
-        "/styles.966e9d2a62844ddffc9e.css"
+        "/styles.b68221071e45fd6a66b2.css"
       ],
       "patterns": [
         "https:\\/\\/fonts\\.googleapis\\.com\\/.*",
@@ -30,6 +30,7 @@
       "installMode": "lazy",
       "updateMode": "prefetch",
       "urls": [
+        "/assets/Flipcon__logo.png",
         "/assets/icons/icon-128x128.png",
         "/assets/icons/icon-144x144.png",
         "/assets/icons/icon-152x152.png",
@@ -58,6 +59,7 @@
   ],
   "dataGroups": [],
   "hashTable": {
+    "/assets/Flipcon__logo.png": "f8e96a779a45e0369ee7a95e1f9ea08de4aa7a37",
     "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
     "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
     "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
@@ -81,15 +83,15 @@
     "/assets/models/tiny_face_detector_model-shard1": "f3020debaf078347b5caaff4bf6dce2f379d20bc",
     "/assets/models/tiny_face_detector_model-weights_manifest.json": "1f9da0ddb847fcd512cb0511f6d6c90985d011e6",
     "/favicon.ico": "c0d792c8e95ad89ee78aac7766f268f99efa93ef",
-    "/index.html": "e792afa3d082ce7fcbacf3baa7deaf7ada7e4a54",
-    "/main-es2015.93f860b25a99ceb40323.js": "a6c5005676399aca26251c713f1896f2aab0189a",
-    "/main-es5.93f860b25a99ceb40323.js": "7b5c7b94edbf021cafe565eb6135001c259c4860",
+    "/index.html": "ee53b15663e18b339349a2cd6b26604e8cdf721f",
+    "/main-es2015.120a5f36e222a4c10360.js": "cda5120eb60824a3aade3fed525f0c0ba87f6111",
+    "/main-es5.120a5f36e222a4c10360.js": "4c15c4e0cf2c4f2338bad06ec53c569505fa1556",
     "/manifest.webmanifest": "54adaca9c341b472537b35d1e37d51757e05a045",
     "/polyfills-es2015.621d94a072aeafd539f2.js": "607ce49cbc33e2cc80ea00f153e7517365e8f137",
     "/polyfills-es5.0db3731d713f532fca56.js": "e0c0a4aafd074acba53b192e51fe43c69df2f1b0",
     "/runtime-es2015.cdfb0ddb511f65fdc0a0.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
     "/runtime-es5.cdfb0ddb511f65fdc0a0.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/styles.966e9d2a62844ddffc9e.css": "c1e673fbcfa8f9b2ae7359b04de31ae7bcfaca9a"
+    "/styles.b68221071e45fd6a66b2.css": "907739cdb0e6980dbfce51306687535efc80452f"
   },
   "navigationUrls": [
     {
