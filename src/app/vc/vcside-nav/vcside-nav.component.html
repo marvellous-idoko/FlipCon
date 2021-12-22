@@ -1,0 +1,49 @@
+<section id="sideNav">
+    <div id="logoCont">
+        <figure id="logo">
+            <img src="../../../assets/Flipcon__logo.png" height="50" width="50">
+        </figure>
+    </div>
+    <div>
+        <ul>
+            <div *ngIf="u['acctType'] === 'Biz'">
+                 <a routerLink="../VC/loan" #rla="routerLinkActive"
+                    routerLinkActive="active">
+                    <li class="links">Make Loan Request</li>
+                </a>
+                <a routerLink="../VC/withdraw" #rla="routerLinkActive" routerLinkActive="active">
+                    <li class="links">Withdraw</li>
+                </a>
+                <a routerLink="../VC/account_balance" #rla="routerLinkActive" routerLinkActive="active">
+                    <li class="links">Account Balance</li>
+                </a>
+                <a routerLink="../VC/loanstatus" #rla="routerLinkActive" routerLinkActive="active">
+                    <li class="links">My Loan Requests</li>
+                </a>
+                <a routerLink="../VC/payloan" #rla="routerLinkActive" routerLinkActive="active">
+                    <li class="links">Repay Loan</li>
+                </a>
+            </div>
+
+            <div *ngIf="u['acctType'] === 'Lender'">
+                <a routerLink="biz" #rla="routerLinkActive" routerLinkActive="active">
+                    <li class="links">Businesses</li>
+                </a>
+                <a routerLink="proposals" #rla="routerLinkActive" routerLinkActive="active">
+                    <li class="links">My Proposals</li>
+                </a>
+                <a routerLink="myloans" #rla="routerLinkActive" routerLinkActive="active">
+                    <li class="links">My Loans</li>
+                </a>
+                
+                <a routerLink="finance" #rla="routerLinkActive" routerLinkActive="active">
+                    <li class="links">Finance</li>
+                </a>
+                <a routerLink="mydetails" #rla="routerLinkActive" routerLinkActive="active">
+                    <li class="links">My Details</li>
+                </a>
+            </div>
+        </ul>
+    </div>
+
+</section>

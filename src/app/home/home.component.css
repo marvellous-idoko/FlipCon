@@ -88,7 +88,7 @@ div.hun{
 }
 button.btn{
     position: relative;
-    border: double purple;
+    border: double #a22ad4;
     border-radius: 5px;
     font-family: 'Roboto';
     transition: all 288ms;
@@ -102,6 +102,13 @@ button.btn{
     place-items: center;
     color: #a22ad4;
 background-color: white;
+}
+#sec{
+height: stretch;
+background-position: center;
+background-size: cover!important;;
+background-repeat: no-repeat;background: url(https://firebasestorage.googleapis.com/v0/b/traffickoffensesystem.appspot.com/o/purple-abstract-background-1080P-wallpaper.jpg?alt=media&token=ede365e4-3397-4d41-a6d7-9e770f5e80bf);
+    
 }
 
 .loader{
@@ -186,3 +193,19 @@ div>div>button:first-of-type{
 .he,.he>div,.carousel[_ngcontent-ubq-c10]{
     height: inherit!important;
 } */
+
+/* media queries */
+@media(max-width:700px){
+    #big{
+        display: none;
+    }
+    #small{
+        display: block!important;
+    }
+    .links{
+        padding: 0.7rem 1rem!important;
+    }
+}
+#small{
+    display: none;
+}

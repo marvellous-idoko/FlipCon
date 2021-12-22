@@ -16,6 +16,7 @@ export interface user{
     bizAddress:string
     bizEmail:string
     sizeOfBiz:string
+    sex:string
     locationLat?: Number
     locationLong?:Number
     

@@ -1,0 +1,144 @@
+<div *ngFor="let a of i | async" style="margin: 20px;">
+    <div>
+        <div style="display: block;">
+            <h6>Loan ID</h6>
+            {{a.loanId}}
+        </div>
+        <div style="display: block;">
+            <h6>Offer Amount</h6>
+            {{a.amount}}
+        </div>
+        <div style="display: block;">
+            <div *ngIf="a.accepted === true">
+                <h6>accepted</h6>
+                {{a.accepted}}
+            </div>
+            <div *ngIf="a.accepted === false || null">
+                <h6>Date of Offer</h6>
+
+                {{a.dateOfoffer | date}}
+            </div>
+        </div>
+    </div>
+    <div>
+        <div>
+            <h6>years</h6>&nbsp; &nbsp;{{a.years}}
+        </div>
+        <div>
+            <h6>Account Id of Burrower</h6>&nbsp; &nbsp; {{a.id}}
+        </div>
+    </div>
+
+    <form *ngIf="state !=='proposals' " style="padding: 10%;" [formGroup]="Form" validate (ngSubmit)="onSubmit()">
+
+        <mat-card-content>
+
+            <!-- <mat-form-field appearance="outline">
+                        <mat-label>Enter Loan Id</mat-label>
+                        <input matInput type="number" placeholder="Loan ID" formControlName="id">
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Enter Id of receipent</mat-label>
+                        <input matInput type="number" placeholder="ID of Recepient" formControlName="idd">
+                    </mat-form-field>
+                    <br> -->
+            <mat-form-field appearance="outline">
+                <mat-label>Enter Proposed Amount</mat-label>
+                <input matInput type="number" placeholder="Amount" formControlName="amt">
+            </mat-form-field>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field class="full-width">
+                        <mat-label>select duration loan shold last</mat-label>
+                        <mat-select placeholder="Duration" formControlName="duration">
+
+                            <mat-option *ngFor="let duration of durations" [value]="duration.value">
+                                {{ duration.name }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="Form.controls['intRate'].hasError('invalid')">
+                            interest rate<strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col">
+                    <mat-form-field class="full-width">
+                        <mat-label>select proposed interest rate</mat-label>
+                        <mat-select placeholder="select proposed interest rate" formControlName="intRate">
+                            <mat-option *ngFor="let intRate of intRates" [value]="intRate.name">
+                                {{ intRate.name }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="Form.controls['intRate'].hasError('invalid')">
+                            interest rate<strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <mat-form-field class="full-width">
+                <mat-label>Suummarise your loan offer here</mat-label>
+                <textarea rows="8" matInput placeholder="Summarise your offer" formControlName="msg"></textarea>
+                <mat-error *ngIf="Form.controls['msg'].hasError('invalid')">
+                    Summary is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="accent" style="float: right;" type="submit">Submit an offer</button>
+        </mat-card-actions>
+    </form>
+    <section *ngIf="a['accepted']  !== true">
+         <form *ngIf="state ==='proposals' " style="padding: 10%;" [formGroup]="Form" validate
+        (ngSubmit)="editProposal()">
+        <h1>Edit proposal</h1>
+        <mat-card-content>
+            <mat-form-field appearance="outline">
+                <mat-label>Enter New Proposed Amount</mat-label>
+                <input matInput type="number" placeholder="Amount" formControlName="amt">
+            </mat-form-field>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field class="full-width">
+                        <mat-label>select new duration loan should last</mat-label>
+                        <mat-select placeholder="Duration" formControlName="duration">
+
+                            <mat-option *ngFor="let duration of durations" [value]="duration.value">
+                                {{ duration.name }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="Form.controls['intRate'].hasError('invalid')">
+                            interest rate<strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col">
+                    <mat-form-field>
+                        <mat-label>select new proposed interest rate</mat-label>
+                        <mat-select placeholder="select proposed interest rate" formControlName="intRate">
+                            <mat-option *ngFor="let intRate of intRates" [value]="intRate.name">
+                                {{ intRate.name }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="Form.controls['intRate'].hasError('invalid')">
+                            interest rate<strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <mat-form-field class="full-width">
+                <mat-label>Suummarise your new loan offer here</mat-label>
+                <textarea rows="8" matInput placeholder="Summarise your offer" formControlName="msg"></textarea>
+                <mat-error *ngIf="Form.controls['msg'].hasError('invalid')">
+                    Summary is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="accent" style="float: right;" type="submit">Submit a new proposal</button>
+        </mat-card-actions>
+        </form>
+    </section>
+</div>

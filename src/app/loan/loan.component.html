@@ -80,7 +80,7 @@
                     <mat-form-field color="accent"class="full-width">
                         <mat-label>select Duration of Loan</mat-label>
                         <mat-select placeholder="select affordable interest rate" formControlName="duration">
-                            <mat-option *ngFor="let duration of durations" [value]="duration.name">
+                            <mat-option *ngFor="let duration of durations" [value]="duration.value">
                                 {{ duration.name }}
                             </mat-option>
                         </mat-select>

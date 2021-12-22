@@ -56,7 +56,6 @@ export class VCComponent implements OnInit {
   // }
   ngOnInit() {
     this.e = this.s.loans();
-    console.info(this.e)
     this.i = this.s.getOffs();
 
     // if(JSON.parse(localStorage.getItem("user"))['acctType'] != 'vc')

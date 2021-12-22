@@ -25,7 +25,9 @@ import {
   MatSlideToggleModule,
   MatBottomSheetModule,
   MatStepperModule,
-  MatProgressBarModule
+  MatChipsModule,
+  MatProgressBarModule,
+  MatAutocompleteModule
   // MatBottomSheet, MatBottomSheetRef
 } from '@angular/material';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
@@ -64,7 +66,17 @@ import { AppInstallerComponent } from './app-installer/app-installer.component';
 import {AppInstallerService} from './app-installer.service';
 import { PayserviceDirective } from './payservice.directive';
 import { PayLoanComponent } from './pay-loan/pay-loan.component';
-import { SafePipe } from './safe.pipe'
+import { SafePipe } from './safe.pipe';
+import { BizComponent } from './vc/biz/biz.component';
+import { VCTopNavComponent } from './vc/vctop-nav/vctop-nav.component';
+import { VCSideNavComponent } from './vc/vcside-nav/vcside-nav.component';
+import { MyoffersComponent } from './vc/myoffers/myoffers.component';
+import { MyloansComponent } from './vc/myloans/myloans.component';
+import { BizDetailsComponent } from './vc/biz-details/biz-details.component';
+import { OfferDetailsComponent } from './vc/offer-details/offer-details.component';
+import { EditproposalComponent } from './editproposal/editproposal.component';
+import { FinanceComponent } from './vc/finance/finance.component';
+import { MyDetailsComponent } from './vc/my-details/my-details.component'
 
 const initializer = (pwaService: AppInstallerService) => 
 () => pwaService.initPwaPrompt()
@@ -95,7 +107,17 @@ const initializer = (pwaService: AppInstallerService) =>
     AppInstallerComponent,
     PayserviceDirective,
     PayLoanComponent,
-    SafePipe
+    SafePipe,
+    BizComponent,
+    VCTopNavComponent,
+    VCSideNavComponent,
+    MyoffersComponent,
+    MyloansComponent,
+    BizDetailsComponent,
+    OfferDetailsComponent,
+    EditproposalComponent,
+    FinanceComponent,
+    MyDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -106,6 +128,8 @@ const initializer = (pwaService: AppInstallerService) =>
     MatCheckboxModule,
     MatListModule,
     FormsModule,
+    MatChipsModule,
+    MatAutocompleteModule,
     MatSidenavModule,
     MatExpansionModule,
     MatProgressSpinnerModule,   

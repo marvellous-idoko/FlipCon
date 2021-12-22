@@ -10,8 +10,10 @@ export class PoissonService {
   
   // server = 'http://localhost:3000/';
   server = 'https://api-sansti-kudi.herokuapp.com/'
-
-  constructor(private Http: HttpClient, private r: Router) { }
+  headers = new HttpHeaders()
+  constructor(private Http: HttpClient, private r: Router) { 
+  this.headers.append('Content-Type', 'applicatiion/json');
+  }
   // sav(a:string,b:string,user:{}){
   //   var headers = new HttpHeaders();
   //   headers.append('Content-Type', 'applicatiion/json');
@@ -23,37 +25,71 @@ export class PoissonService {
   //      '/'+user['aor']+
   //      '/'+user['nor'],
 
-  //       { headers: headers });
+  //       { headers: this.headers });
   //       this.intBankTrans()
 
   // }
 lok
  c:{};
+
+ wese = JSON.parse(localStorage.getItem("user"))
 payloan(){
- 
-  var headers = new HttpHeaders();
-    headers.append('Content-Type', 'applicatiion/json');
-     return  this.Http.post(this.server + 'payloan/' + "i11233", { headers: headers })
+     return  this.Http.post(this.server + 'payloan/' + "i11233", { headers: this.headers })
 }
  loanDet(id:string){
    this.lok = id
-  var headers = new HttpHeaders();
-    headers.append('Content-Type', 'applicatiion/json');
-     return  this.Http.get(this.server + 'loanDet/' + id, { headers: headers })
-    
+     return  this.Http.get(this.server + 'loanDet/' + id, { headers: this.headers })   
 }
+noOfLoansCompleted(){
+  console.info(this.wese['account_no'])
+  return  this.Http.get(this.server + 'noOfLoansCompleted/' + this.wese['account_no'], { headers: this.headers })   
+}
+noOfLoansUnpaid(){
+   return  this.Http.get(this.server + 'noOfLoansUnpaid/' + this.wese['account_no'], { headers: this.headers })   
+}
+noOfProposals(){
+  return  this.Http.get(this.server + 'noOfProposals/' + this.wese['account_no'], { headers: this.headers })   
+}
+amountInvested(){
+  return  this.Http.get(this.server + 'amountInvested/' + this.wese['account_no'], { headers: this.headers })   
 
+}
+offerDet(id:string){
+  this.lok = id
+ 
+   
+    return  this.Http.get(this.server + 'offerDet/' + id, { headers: this.headers })
+   
+}
+editProposal(f:{}){
+
+  return this.Http.post(
+    this.server + 'editProp', { offer: f, id: this.wese['account_no'] }, { headers: this.headers })
+
+}
+trgtSrch(a:{}){
+  console.info(a)
+  
+    
+     return  this.Http.post(this.server + 'trgsearch',a ,{ headers: this.headers })
+}
+fund(id:number){
+  
+    
+       return this.Http.get(this.server + 'fundLoan/' +id, { headers: this.headers })  
+
+}
 gh(){
   console.info(this.lok)
-  var headers = new HttpHeaders();
-    headers.append('Content-Type', 'applicatiion/json');
-       return this.Http.get(this.server + 'loanDet/' + this.lok, { headers: headers })  
+  
+    
+       return this.Http.get(this.server + 'loanDet/' + this.lok, { headers: this.headers })  
 }
 
 
   sav(a: string, b: string, user: {}, acct) {
-    var headers = new HttpHeaders();
-    headers.append('Content-Type', 'applicatiion/json');
+    
+    
     this.Http.get(
       this.server +
       'updAcct/' + a + '/' + b +
@@ -62,120 +98,137 @@ gh(){
       '/' + user['aor'] +
       '/' + user['nor'],
 
-      { headers: headers })
+      { headers: this.headers })
       .subscribe(e => {
         console.info(e)
       })
     return this.intBankTrans(acct,a)
   }
    intBankTrans(acctNo,amt) {
-    var headers = new HttpHeaders();
-    headers.append('Content-Type', 'applicatiion/json');
+    
+    
     return this.Http.get(
-      this.server + 'intBankEnq/' + acctNo+"/"+amt, { headers: headers })
+      this.server + 'intBankEnq/' + acctNo+"/"+amt, { headers: this.headers })
   }
 
 genID(g:{}){
-  var headers = new HttpHeaders();
-  headers.append('Content-Type', 'applicatiion/json');
-  return this.Http.post(this.server + 'genTranID',g, { headers: headers })
+
+  return this.Http.post(this.server + 'genTranID',g, { headers: this.headers })
 }
 
   retrAcctBal(user: {}) {
-    var headers = new HttpHeaders();
-    headers.append('Content-Type', 'applicatiion/json');
-    return this.Http.get(this.server + 'retrAcctBal/' + user['account_no'], { headers: headers })
+    
+    
+    return this.Http.get(this.server + 'retrAcctBal/' + user['account_no'], { headers: this.headers })
   }
   retrCred(user: {}): Observable<any> {
-    var headers = new HttpHeaders();
-    headers.append('Content-Type', 'applicatiion/json');
+    
+    
     return this.Http.get(
-      this.server + 'retrCred/' + user['account_no'], { headers: headers })
+      this.server + 'retrCred/' + user['account_no'], { headers: this.headers })
   }
   retrDebit(user: {}): Observable<any> {
-    var headers = new HttpHeaders();
-    headers.append('Content-Type', 'applicatiion/json');
+    
+    
     return this.Http.get(
-      this.server + 'retrDebit/' + user['account_no'], { headers: headers })
+      this.server + 'retrDebit/' + user['account_no'], { headers: this.headers })
   }
   chAcct(s: string) {
-    var headers = new HttpHeaders();
-    headers.append('Content-Type', 'applicatiion/json');
+    
+    
     return this.Http.get(
-      this.server + 'chAcct/' + s, { headers: headers })
+      this.server + 'chAcct/' + s, { headers: this.headers })
   }
   vrfBvn(bvn: string) {
     let h = JSON.parse(localStorage.getItem("user"))
     console.log(h['account_no'])
-    var headers = new HttpHeaders();
-    headers.append('Content-Type', 'applicatiion/json');
+    
+    
     return this.Http.get(
-      this.server + 'verifyBVN/' + bvn + "/" + h['account_no'], { headers: headers })
+      this.server + 'verifyBVN/' + bvn + "/" + h['account_no'], { headers: this.headers })
       
   }
   loan(d: {}) {
-
-    var headers = new HttpHeaders();
-    headers.append('Content-Type', 'applicatiion/json');
-    return this.Http.post(this.server + 'loan', { a: d, abtBiz: JSON.parse(localStorage.getItem("user"))['abtBiz'], acctId: JSON.parse(localStorage.getItem("user"))['account_no'] },
-      { headers: headers })
+    
+    
+    return this.Http.post(this.server + 'loan',
+     { a: d, 
+      b: this.wese},{ headers: this.headers })
   }
   loanHis(): Observable<any> {
-    var headers = new HttpHeaders();
-    headers.append('Content-Type', 'applicatiion/json');
+    
+    
     return this.Http.get(
-      this.server + 'loanHis/' + JSON.parse(localStorage.getItem("user"))['account_no'], { headers: headers })
+      this.server + 'loanHis/' + this.wese['account_no'], { headers: this.headers })
   }
   loans(): Observable<any> {
-    var headers = new HttpHeaders();
-    headers.append('Content-Type', 'applicatiion/json');
+    
+    
     return this.Http.get(
-      this.server + 'loans', { headers: headers })
+      this.server + 'loans', { headers: this.headers })
   }
   rejOff(d: string) {
-    var headers = new HttpHeaders();
-    headers.append('Content-Type', 'applicatiion/json');
+    
+    
     return this.Http.get(
-      this.server + 'rejOffer/' + d, { headers: headers })
+      this.server + 'rejOffer/' +this.wese['account_no']+"/"+ d, { headers: this.headers })
   }
   getOffs(): Observable<any> {
-    var headers = new HttpHeaders();
-    headers.append('Content-Type', 'applicatiion/json');
+    
+    
     return this.Http.get(
-      this.server + 'getOffers/' + JSON.parse(localStorage.getItem("user"))['account_no'], { headers: headers })
+      this.server + 'getOffers/' + this.wese['account_no'] +'/', { headers: this.headers })
+  }
+
+    getMyLoans(): Observable<any> {
+    
+    
+    return this.Http.get(
+      this.server + 'getMyLoans/' + this.wese['account_no'] +'/', { headers: this.headers })
+  }
+
+  getLoans(): Observable<any> {
+    
+    
+    return this.Http.get(this.server + 'getLoans/' + this.wese['account_no'] +'/', { headers: this.headers })
   }
   acpOff(d: string) {
-    var headers = new HttpHeaders();
-    headers.append('Content-Type', 'applicatiion/json');
+    
+    
     return this.Http.get(
-      this.server + 'accOffer/' + JSON.parse(localStorage.getItem("user"))['account_no'], { headers: headers })
+      this.server + 'accOffer/' + this.wese['account_no'] +'/'+d, { headers: this.headers })
   }
   withdraw(s): Observable<any> {
     console.info('swplkpw')
-    var headers = new HttpHeaders();
-    headers.append('Content-Type', 'applicatiion/json');
+    
+    
     return this.Http.post(
-      this.server + 'withdrawal', { amt: s, id: JSON.parse(localStorage.getItem("user"))['account_no'] }, { headers: headers })
+      this.server + 'withdrawal', { amt: s, id: this.wese['account_no'] }, { headers: this.headers })
   }
   submitOffer(d: {}) {
-    console.info(d)
-    var headers = new HttpHeaders();
-    headers.append('Content-Type', 'applicatiion/json');
+    
+    
     return this.Http.post(
-      this.server + 'submitOffer', { offer: d, id: JSON.parse(localStorage.getItem("user"))['account_no'] }, { headers: headers })
+      this.server + 'submitOffer', { offer: d, id: this.wese['account_no'] }, { headers: this.headers })
   }
+
+  incrViews(id:string){
+    
+     this.Http.get( this.server + 'incrViews/' + id, { headers: this.headers }).subscribe(de=>console.info(''))
+  }
+
   nameEnq(acctNo) {
-    var headers = new HttpHeaders();
-    headers.append('Content-Type', 'applicatiion/json');
+    
+    
     return this.Http.get(
-      this.server + 'nameEnq/' + acctNo, { headers: headers })
+      this.server + 'nameEnq/' + acctNo, { headers: this.headers })
   }
   genWitId(d){
     console.info(d)
-    var headers = new HttpHeaders();
-    headers.append('Content-Type', 'applicatiion/json');
+    
+    
     return this.Http.post(
-      this.server + 'withID',d, { headers: headers })
+      this.server + 'withID',d, { headers: this.headers })
  
   }
 }

@@ -1,4 +1,4 @@
-<section>
+<!-- <section>
     <mat-toolbar matRipple color='accent' style="top: 0;">
     <button (click)="goback()" mat-icon-button aria-label="Example icon button with a heart icon">
         <mat-icon>west</mat-icon>
@@ -13,7 +13,6 @@
 <section style="margin-top: 80px;">
     <mat-tab-group>
         <mat-tab label="All loan Requests">
-            
             <mat-accordion>
 
                 <mat-expansion-panel *ngFor="let a of this.e | async" style="margin: 20px;">
@@ -167,10 +166,30 @@
 
             </mat-accordion>
         </mat-tab>
-        <!-- <mat-tab label="Submit an Offer">
-                    </mat-tab> -->
     </mat-tab-group>
 
 </section>
+
+</section> -->
+<section>
+
+    <div>
+        <aside id="sideNav">
+            <app-vcside-nav></app-vcside-nav>
+            </aside>
+        <main id="main">
+            <div>
+                <section id="topNavCont">
+                    <app-vctop-nav></app-vctop-nav>
+                </section>
+                <section id="mainBase">
+                    <div>
+                        <button style="position: fixed;top: 7rem;" mat-button (click)="goback()"><mat-icon>west</mat-icon></button>
+                    </div>
+                    <router-outlet></router-outlet>
+                </section>
+            </div>
+        </main>
+    </div>
 
 </section>

@@ -59,16 +59,15 @@ export class LoanComponent implements OnInit {
     { name: '5%' },
   ];
   durations = [
-    { name: '1 year' },
-    { name: '2 years' },
-    { name: '3 years' },
-    { name: '4 years' },
-    { name: '5 years' },
-    { name: '6 years' },
-    { name: '7 years' },
-    { name: '8 years' },
-    { name: '9 years' },
-    { name: '10 years' },
+    { name: '3 Months',value:0.3 },
+    { name: '6 Months',value:0.6 },
+    { name: '1 year',value:1 },
+    { name: '1/2 years',value:1.6 },
+    { name: '2 years',value:2 },
+    { name: '2 and 1/2 years',value:2.6 },
+    { name: '3 years' ,value:3},
+    { name: '4 years',value:4 },
+    { name: '5 years' ,value:5}
   ];
 
   chkLog() {

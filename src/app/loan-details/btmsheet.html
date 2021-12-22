@@ -1,5 +1,6 @@
-<mat-card-header>Offer</mat-card-header>
-<mat-nav-list>
+<div *ngIf="lok['VCOffer'] !== undefined">
+    <header><h3>Offer</h3></header>
+    <mat-nav-list>
  <!-- <mat-list-item> -->
    <button mat-button class="listI accent">
             <div style="display: flex;justify-content: space-between;">
@@ -25,11 +26,13 @@
 <mat-divider></mat-divider>
 <p>{{lok['VCOffer']['msg']}}</p>
 </mat-nav-list>
-<div style="float: right;">
+    <div style="float: right;" *ngIf="lok['accepted'] === undefined">
 
-<button mat-stroked-button color="warn">
+<button mat-stroked-button (click)="rejectLoan(lok['loanId'])" color="warn">
   Reject
 </button>
 &nbsp;&nbsp;
-<button mat-raised-button color="accent">Accept</button>
+<button mat-raised-button color="accent" (click)="acceptLoan(lok['loanId'])">Accept</button>
 </div>
+</div>
+<h1 *ngIf="lok['VCOffer'] === undefined || null">No offer yet</h1>

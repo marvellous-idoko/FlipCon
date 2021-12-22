@@ -1,9 +1,11 @@
-<mat-toolbar matRipple color='accent' style="top:0;">
-    <span><strong>Flipcoin</strong></span>
-    <span id="spacer"></span><br>
+<app-vc id="big"></app-vc>
+<section id="small">
+    <mat-toolbar matRipple color='accent' style="top:0;">
+        <span><strong>Flipcon</strong></span>
+        <span id="spacer"></span><br>
 
-</mat-toolbar>
-<!-- <section style="position: relative;top:0;" *ngIf="this.ol === false">
+    </mat-toolbar>
+    <!-- <section style="position: relative;top:0;" *ngIf="this.ol === false">
     <div style="height: inherit;
  background:url('https://thumbs.dreamstime.com/b/close-up-african-woman-selling-food-stuff-local-market-holding-mobile-point-sale-device-collecting-credit-card-166608372.jpg');
  display: flex; 
@@ -25,14 +27,14 @@
         </div>
     </div>
 </section> -->
-<section style="position: relative;top:0;" *ngIf="this.ol === true">
-    <!-- <audio style="margin-top: 30px;" controls *ngIf="show === true" style="display:none;" id="ok" autoplay>
+    <section style="position: relative;top:0;" *ngIf="this.ol === true">
+        <!-- <audio style="margin-top: 30px;" controls *ngIf="show === true" style="display:none;" id="ok" autoplay>
         <source
             src="https://firebasestorage.googleapis.com/v0/b/traffickoffensesystem.appspot.com/o/record20210314043436.3gpp?alt=media&token=fa9e99ae-32ea-4315-a8b6-ff32269d63f3">
         Your browser does not support the
         <code>audio</code> element
     </audio> -->
-    <!-- <mat-carousel class="he" timings="250ms ease-in" [autoplay]="false" interval="5000" color="accent" maxWidth="auto"
+        <!-- <mat-carousel class="he" timings="250ms ease-in" [autoplay]="false" interval="5000" color="accent" maxWidth="auto"
         proportion="25" slides="3" [loop]="true" [hideArrows]="false" [hideIndicators]="true" [useKeyboard]="true"
         [useMouseWheel]="false" orientation="ltr">
         <mat-carousel-slide *ngIf="this.view === true" class="he" #matCarouselSlide>
@@ -148,76 +150,73 @@
         </mat-carousel-slide>
     </mat-carousel> -->
 
-    <!-- </div> -->
-</section>
+        <!-- </div> -->
+    </section>
 
-<section style="background-position: center;
-background-size: cover!important;;
-background-repeat: no-repeat;background: url(https://firebasestorage.googleapis.com/v0/b/traffickoffensesystem.appspot.com/o/purple-abstract-background-1080P-wallpaper.jpg?alt=media&token=ede365e4-3397-4d41-a6d7-9e770f5e80bf);">
-    <div style="height: inherit;display: flex;
+    <section id="sec">
+        <div style="height: inherit;display: flex;
     place-content: center;
     place-items: center;
     flex-direction: column;">
-        <div style="width: 100%;">
+            <div style="width: 100%;">
 
-            <div class="hun">
-                <button mat-button class="btn" id="withdraw" (click)="router('withdraw')" 
-                style="animation-name:iwo;">
-                <div class="wrpr">   
-                <mat-icon style="" color="accent">credit_score</mat-icon>
-                    <span style="color: #a22ad4;">Withdraw</span>
+                <div class="hun">
+                    <button mat-button class="btn" id="withdraw" (click)="router('withdraw')"
+                        style="animation-name:iwo;">
+                        <div class="wrpr">
+                            <mat-icon color="accent">credit_score</mat-icon>
+                            <span style="color: #a22ad4;">Withdraw</span>
+                        </div>
+                    </button>
+
+                    <button class="btn" (click)="router('loan')" id="loan" style="color: #a22ad4;animation-name:io;">
+                        <div class="wrpr">
+                            <mat-icon class="ikn" color="accent">receipt_short</mat-icon>
+                            <span> Loan Request</span>
+                        </div>
+                    </button>
                 </div>
-                </button>
+                <div class="hun">
 
-                <button class="btn" (click)="router('loan')" id="loan" 
-                style="color: #a22ad4;animation-name:io;">
-                <div class="wrpr">       
-                <mat-icon class="ikn" color="accent">receipt_short</mat-icon>
-                   <span> Loan Request</span>
-                    </div>
-                </button>
+                    <button class="btn" (click)="router('deposit')" id="deposit"
+                        style="color: #a22ad4;animation-name:iwopp;">
+                        <div class="wrpr">
+
+                            <mat-icon class="ikn" color="accent">credit_card</mat-icon>
+                            <span>Deposit</span>
+                        </div>
+                    </button>
+                    <button class="btn" (click)="router('loanstatus')" id="loanstatus"
+                        style="color: #a22ad4; animation-name:iwop;">
+                        <div class="wrpr">
+                            <mat-icon color="accent">receipt_long</mat-icon>
+                            <span>loan status</span>
+                        </div>
+                    </button>
+                </div>
+                <div class="hun">
+                    <button class="btn" (click)="router('account_balance')" id="account_balance"
+                        style="color: #a22ad4;animation-name:iwoo;">
+                        <div class="wrpr">
+                            <mat-icon class="ikn" color="accent">account_balance</mat-icon>
+                            <span> Account Balance</span>
+                        </div>
+                    </button>
+
+                    <button class="btn" (click)="router('payloan')" id="profile"
+                        style="color: #a22ad4;animation-name:iwow;">
+                        <div class="wrpr">
+                            <mat-icon class="ikn" color="accent">paid</mat-icon>
+                            <span> Pay Loan</span>
+                        </div>
+                    </button>
+                </div>
+
+
             </div>
-            <div class="hun">
-
-                <button class="btn" (click)="router('deposit')" id="deposit"
-                 style="color: #a22ad4;animation-name:iwopp;">
-                <div class="wrpr">   
-
-                    <mat-icon class="ikn" color="accent">credit_card</mat-icon>
-                    <span>Deposit</span>
-                    </div>
-                </button>
-                <button class="btn" (click)="router('loanstatus')" id="loanstatus" 
-                style="color: #a22ad4; animation-name:iwop;">
-                <div class="wrpr">   
-                    <mat-icon  color="accent">receipt_long</mat-icon>
-                    <span>loan status</span>
-                    </div>
-                </button>
-            </div>
-            <div class="hun">
-                <button class="btn" (click)="router('account_balance')" id="account_balance"
-                 style="color: #a22ad4;animation-name:iwoo;">
-                 <div class="wrpr">   
-                    <mat-icon class="ikn" color="accent">account_balance</mat-icon>
-                 <span>   Account Balance</span>
-</div>
-                </button>
-
-                <button class="btn" (click)="router('payloan')" id="profile"
-                 style="color: #a22ad4;animation-name:iwow;">
-                <div class="wrpr">   
-                    <mat-icon class="ikn" color="accent">paid</mat-icon>
-    	           <span> Pay Loan</span>
-                   </div>
-                </button> 
-            </div>
-
-
         </div>
-    </div>
+    </section>
 </section>
-
 <!-- <section style="   padding:5px 35px;">
     <div style="display: flex; flex-wrap: wrap;">
 

@@ -140,8 +140,8 @@ states = [
       industry  : this.secondFormGroup.get('industry').value,
       photo :   new File([b],this.secondFormGroup.get('name').value, {type:'image/png'}) ,
       name :  this.secondFormGroup.get('name').value,
-      nameOfBiz:this.secondFormGroup.get('nameOfBiz').value
-
+      nameOfBiz:this.secondFormGroup.get('nameOfBiz').value,
+      sex:this.secondFormGroup.get('sex').value
     }
     let g
     navigator.geolocation.getCurrentPosition((p)=>{
@@ -216,7 +216,7 @@ fxn(){
     .then(function(stream) {
     video.srcObject = stream;
     video.play();
-     
+
     
   })
   .catch(function(err) {
@@ -265,7 +265,7 @@ takepicture() {
       if(fullFaceDescriptions.length == 0 || ''){
       
         alert('Face Detection Failed. Take snapshot agaimn ')
-      }else{
+      }else{  
      let video =  <HTMLVideoElement>this.d.getElementById('video');
      video.style.display = 'none'
       const canva = <HTMLCanvasElement> this.d.getElementById('kik')

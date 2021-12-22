@@ -1,0 +1,30 @@
+
+#logoCont{
+    margin: 3rem 0;
+    width: fit-content;
+}
+.links{
+    transition: .5s;
+
+        list-style: none;
+        color: #a22ad4;
+        padding: 0.7rem 2.4rem;
+        border-radius: 3px;
+}
+a{
+    text-decoration: none;
+    /* text-underline: none; */
+}
+a.active>li{
+    transition: .5s;
+    background: #a22ad426;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+#sideNav{
+    position: sticky;
+    top: 33px;
+    z-index: 4;
+}

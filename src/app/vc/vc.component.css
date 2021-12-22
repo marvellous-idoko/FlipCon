@@ -3,3 +3,56 @@ h6{
     margin: 3px 0px 0px!important;
     text-align: center;
 }
+section{
+    background-color: hsl(220deg 33% 98%);
+}
+#topNavCont{
+    height: fit-content;
+    position: sticky;
+    top: -3px;
+    z-index: 4;
+}
+section > div{
+    display: flex;
+    justify-content: space-between;
+
+}
+#sideNav{
+    background-color: var(--white);
+    width: 20%;
+    height: inherit;
+}
+#main{
+    height: inherit;
+    width: 75%;
+}
+
+#topNav> mat-toolbar > div{
+    display:flex;
+    justify-content:space-between;
+    width: stretch;
+}
+#topNav mat-toolbar{
+    width:75%;
+    background-color: inherit;
+    color:var(--purple);
+
+}
+    #topNav{
+        background-color: var(--white);
+         height: 4.2rem;
+        margin-bottom: 2rem;
+        box-shadow: 5px 6px 2px 2px #ccc;
+      
+}
+main > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: inherit;
+}
+#mainBase{
+    background-color: var(--white);
+    height: stretch;
+    padding: 2rem;
+}

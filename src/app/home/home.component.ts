@@ -48,17 +48,24 @@ router(r){
   this.r.navigateByUrl(r);
 }
 ol:Boolean
-ngOnInit(){
-  // var z = JSON.parse(localStorage.getItem("user"))
-  // if(z == null||undefined){
-  //   this.ol = false 
+z = JSON.parse(localStorage.getItem("user"))
 
-  // this.r.navigateByUrl('gen');
+ngOnInit(){
+  console.info(this.z)
+  if(this.z == null||undefined){
+    // this.ol = false 
+
+  this.r.navigateByUrl('gen');
    
-  // }else{
-  //   if (z.acctType == 'vc')this.view = false; 
-  //   this.ol = true 
-  // }
+  }else{
+    if (this.z.acctType == 'Lender'){
+    this.r.navigateByUrl('VC');
+
+    }
+    
+    // this.view = false; 
+    // this.ol = true 
+  }
   // this.ht()
   // this.s.koll().subscribe(e=>{
   //   console.info(e)

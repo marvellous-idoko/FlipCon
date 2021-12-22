@@ -17,7 +17,7 @@ export class RegLogService {
    var  se =  new FormData()
     se.append('photo',data.photo)
     console.info(se.get('photo'))
-    console.info(data.photo)
+    // console.info(data.photo)
     // data.photo v = null
     se.append('sizeOfBiz',data.sizeOfBiz)
     se.append('address',data.address)
@@ -35,6 +35,7 @@ export class RegLogService {
     se.append('location',data.locationLat.toString())
     se.append('nameOfBiz',data.nameOfBiz)
     se.append('abtBiz',data.abtBiz)
+    se.append('sex',data.sex)
 
 
     var headers = new HttpHeaders();

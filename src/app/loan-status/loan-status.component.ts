@@ -20,26 +20,5 @@ disabled = false;
   goback() {
     this.l.back();
   }
-  acceptLoan(d:any){
-    var k = confirm('Are you sure you want to accept the loan')
-    if(k == false)return;
-    else{
-      this.s.acpOff(d).subscribe(e=>{
-        var d = confirm(e['a'])
-        if(d==true)this.e = this.s.loanHis();
-        this.e = this.s.loanHis();
-      })
-    }
-  }
-    rejectLoan(d:any){
-      var k = confirm('Are you sure you want to reject the loan')
-      if(k == false)return;
-    else{
-        this.s.rejOff(d).subscribe(e=>{
-          var d = confirm(e['a'])
-          if(d==true)this.e = this.s.loanHis();
-          this.e = this.s.loanHis();
-        })
-      }
-  }
+
 }

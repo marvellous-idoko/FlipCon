@@ -1,0 +1,32 @@
+<div class="grid" *ngIf="i">
+    <mat-card *ngFor="let a of i | async" class="item">
+        <a routerLink="../bizdetails/{{a.loanId}}/proposals">
+
+            <figure class="mat-card-image fig" style="background: orange;" *ngIf="a.accepted === undefined || null">
+                <span> {{a.amt}}</span>
+            </figure>
+            <figure class="mat-card-image fig" style="background: green;" *ngIf="a.accepted === true">
+                <span> {{a.amt}}</span>
+            </figure>
+            <figure class="mat-card-image fig" style="background: red;" *ngIf="a.accepted === false">
+                <span> {{a.amt}}</span>
+            </figure>
+
+            <mat-card-content>
+                {{a.idofrecepient}}
+            </mat-card-content>
+        </a>
+        <button (click)="fund(a.loanId)" color="accent" style="float:right;" mat-stroked-button>Fund</button>
+
+
+
+    </mat-card>
+</div>
+<h1 *ngIf="i === null || undefined">Invest in a Business to see you offers here</h1>
+<div *ngIf="to === true" id="ft" (click)="close()">
+    <div>
+        <iframe [src]="tht | safe">
+
+        </iframe>
+    </div>
+</div>

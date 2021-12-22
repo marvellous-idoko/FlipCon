@@ -1,0 +1,21 @@
+<div class="grid" *ngIf="i$">
+    <mat-card *ngFor="let a of i$ | async" class="item">
+        <a routerLink="../bizdetails/{{a.loanId}}/proposals">
+            
+            <figure class="mat-card-image fig" style="background: yellow;" >
+                <span> {{a.amt}}</span>
+            </figure>
+            <figure class="mat-card-image fig"*ngIf="a.repaid === true">
+                <span> {{a.amt}}</span>
+            </figure>
+            <mat-card-content>
+                <b>Account ID of Receipient</b>
+                {{a.idofrecepient}}
+            </mat-card-content>
+        </a>
+
+
+        <meter value="0.5" title="loan meter, check when loan duration elapses">50%</meter>
+
+    </mat-card>
+</div>

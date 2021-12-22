@@ -1,0 +1,55 @@
+<mat-form-field class="example-chip-list" appearance="fill">
+    <mat-label>Favorite Fruits</mat-label>
+    <mat-chip-list #chipList aria-label="Fruit selection">
+      <mat-chip
+        *ngFor="let fruit of fruits"
+        [selectable]="selectable"
+        [removable]="removable"
+        (removed)="remove(fruit)">
+        {{fruit}}
+        <button matChipRemove *ngIf="removable">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip>
+      <input
+        placeholder="New fruit..."
+        (blur)="ckj()"
+        #fruitInput
+        [formControl]="fruitCtrl"
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (matChipInputTokenEnd)="add($event)"
+        id="lide">
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+        {{fruit}}
+      </mat-option>
+    </mat-autocomplete>
+    <button id="btnn" style="float: right;" (click) ="targetedSearch()" mat-button>Filter</button>
+  </mat-form-field>
+<div class="grid">
+    <mat-card *ngFor="let a of i | async" class="item">
+        <a routerLink="../bizdetails/{{a.loanId}}/businesses">
+           <figure class="mat-card-image fig">
+            <span> {{a.amount}}</span>
+            </figure>
+            <div>
+                <mat-card-header>
+                    {{a.reason}}
+                </mat-card-header>
+                <button  style="float:right;"mat-stroked-button>See Details</button>
+
+            </div>
+        </a>
+    </mat-card>
+</div>
+<section *ngIf="(i | async).length == 0">
+  <h3 style="text-align: center;">Not Found</h3>
+  
+<figure  id="ghu">
+  <img src="../../../assets/undraw_not_found_-60-pq.svg" style="height: calc(40%);width:calc(40%);" alt="not found" title="No Loan Request  Found">
+</figure>
+</section>
+
