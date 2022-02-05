@@ -1,23 +1,23 @@
 {
   "configVersion": 1,
-  "timestamp": 1641163480476,
+  "timestamp": 1644095356925,
   "index": "/index.html",
   "assetGroups": [
     {
       "name": "app",
       "installMode": "prefetch",
       "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main-es2015.d49768c03cc41204afef.js",
-        "/main-es5.d49768c03cc41204afef.js",
+        "/main.2bd89325a9ffecef.js",
         "/manifest.webmanifest",
-        "/polyfills-es2015.621d94a072aeafd539f2.js",
-        "/polyfills-es5.0db3731d713f532fca56.js",
-        "/runtime-es2015.cdfb0ddb511f65fdc0a0.js",
-        "/runtime-es5.cdfb0ddb511f65fdc0a0.js",
-        "/styles.396cb02027e3b655681a.css"
+        "/polyfills.7a7d956cb23bf692.js",
+        "/runtime.205df1acf665b533.js",
+        "/styles.ee37c73158dedbee.css"
       ],
       "patterns": [
         "https:\\/\\/fonts\\.googleapis\\.com\\/.*",
@@ -29,6 +29,9 @@
       "name": "assets",
       "installMode": "lazy",
       "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
       "urls": [
         "/assets/Flipcon__logo.png",
         "/assets/bg.jpg",
@@ -58,7 +61,7 @@
         "/assets/undraw_no_data_re_kwbl.svg",
         "/assets/undraw_not_found_-60-pq.svg",
         "/assets/undraw_speed_test_wxl0.svg",
-        "/bg.127e01dd30e355eedfaa.jpg"
+        "/bg.78112bea1bea6095.jpg"
       ],
       "patterns": []
     }
@@ -66,7 +69,7 @@
   "dataGroups": [],
   "hashTable": {
     "/assets/Flipcon__logo.png": "f8e96a779a45e0369ee7a95e1f9ea08de4aa7a37",
-    "/assets/bg.jpg": "b04f8aff472620d61612217ef4b2cd94f07b914b",
+    "/assets/bg.jpg": "97e7dedec98e2f1a881fded59794cb2a1a48fd97",
     "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
     "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
     "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
@@ -93,17 +96,14 @@
     "/assets/undraw_no_data_re_kwbl.svg": "83552ea7803080562a4c7f547fb9af3ace576380",
     "/assets/undraw_not_found_-60-pq.svg": "3cacdee41ed749fdba77c892a9389c63e11727df",
     "/assets/undraw_speed_test_wxl0.svg": "5a887aac204627f0cf6f687e8bee9ed64bd8fda6",
-    "/bg.127e01dd30e355eedfaa.jpg": "b04f8aff472620d61612217ef4b2cd94f07b914b",
+    "/bg.78112bea1bea6095.jpg": "97e7dedec98e2f1a881fded59794cb2a1a48fd97",
     "/favicon.ico": "c0d792c8e95ad89ee78aac7766f268f99efa93ef",
-    "/index.html": "231b871fd4a592d87c7432572bed9df1898b51bf",
-    "/main-es2015.d49768c03cc41204afef.js": "6dfdb23b90210545219707928db089ac617edc29",
-    "/main-es5.d49768c03cc41204afef.js": "fee2316c3310ea0f63942e07220e9d0ce8ad3a7f",
-    "/manifest.webmanifest": "54adaca9c341b472537b35d1e37d51757e05a045",
-    "/polyfills-es2015.621d94a072aeafd539f2.js": "607ce49cbc33e2cc80ea00f153e7517365e8f137",
-    "/polyfills-es5.0db3731d713f532fca56.js": "e0c0a4aafd074acba53b192e51fe43c69df2f1b0",
-    "/runtime-es2015.cdfb0ddb511f65fdc0a0.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/runtime-es5.cdfb0ddb511f65fdc0a0.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/styles.396cb02027e3b655681a.css": "550e59d1f3d960ecd19e0fb3ff8861a818649ebb"
+    "/index.html": "d295614ab7ae901e978de5d43d4cf7bf0af2e740",
+    "/main.2bd89325a9ffecef.js": "16b868b55c09b5fcbae48d89ccf62139d515ced6",
+    "/manifest.webmanifest": "e4a590030830d611c8e669deca9ea7d05c80514e",
+    "/polyfills.7a7d956cb23bf692.js": "40dcbca23f62df8c58b40f9ba321e8eca1d1baf1",
+    "/runtime.205df1acf665b533.js": "22379a82798d5cdd4f38c6233343ad64ef8ec54a",
+    "/styles.ee37c73158dedbee.css": "d3d03f2b6615c5cb36734d8760c7738829993dbb"
   },
   "navigationUrls": [
     {
@@ -122,5 +122,6 @@
       "positive": false,
       "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
     }
-  ]
+  ],
+  "navigationRequestStrategy": "performance"
 }
